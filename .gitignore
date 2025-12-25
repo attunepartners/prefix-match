@@ -24,6 +24,7 @@ cpp/prefix_match
 *.gz
 *.txt
 !examples/*.txt
+!examples/*.py
 !README.txt
 
 # Python cache
