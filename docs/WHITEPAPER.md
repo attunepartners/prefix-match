@@ -12,6 +12,8 @@ In programmatic advertising, Demand-Side Platforms (DSPs) must evaluate bid oppo
 
 ### 1. Introduction
 
+PrefixMatch is a C++ implementation based on concepts from pattern matching code licensed from Luther J. Woodrum. The original system was deployed at a medium-sized Demand-Side Platform (DSP) for bidding on programmatic advertising auctions. Note that the original licensed code considerably outperformed this implementation.
+
 Every time you visit a webpage with advertisements, an invisible auction takes place. In the 100 milliseconds between your browser requesting the page and the ads appearing, dozens of advertising platforms have received a bid request, evaluated whether to bid, calculated a price, and submitted their response. This is Real-Time Bidding (RTB), and it processes over 500 billion transactions daily.
 
 Within this compressed timeline, Demand-Side Platforms face a fundamental challenge: they must understand *what* they're bidding on. A luxury car manufacturer wants their ads on automotive review sites, not controversial news articles. A children's toy company needs to avoid adult content. A financial services firm seeks placements on business and investing pages.
