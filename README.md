@@ -55,17 +55,17 @@ Requirements:
 
 ### Pattern File Format
 
-Tab-separated format with pattern words and reference data:
+Tab-separated format with four fields:
 ```
-pattern_words<TAB>category|pattern_id
+pattern_words<TAB>pattern_id<TAB>category<TAB>category_num
 ```
 
 Example:
 ```
-cnn com politics	news_politics|NP001
-espn com	news_sports|NS001
-bmw com	auto_luxury|AL001
-mercedes benz com	auto_luxury|AL002
+linux mount command	2784028	SERVERS_MANAGED_HOSTING	7509
+travel expense	4821538	SOFTWARE_TRAVEL_EXPENSE	9052
+honda crv model year	8425111	AUTO_HONDA	9508
+docker monitoring	1454481	DEV_APP_CONTAINERIZATION	7243
 ```
 
 **Pattern Requirements:**

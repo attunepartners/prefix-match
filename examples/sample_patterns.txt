@@ -1,136 +1,1004 @@
 # Sample URL categorization patterns for RTB
-# Format: pattern_words<TAB>category|pattern_id
-#
-# Pattern words are space-separated URL components (case-insensitive)
-# Category and pattern_id are pipe-separated reference data
-#
-# Note: Patterns must have at least 2 words after preprocessing
+# Format: pattern_words<TAB>pattern_id<TAB>category<TAB>category_num
+# Source: bw_patterns_full_100000.txt (first 1000 patterns)
 
-# News - Politics
-cnn com politics	news_politics|NP001
-nytimes com politics	news_politics|NP002
-washingtonpost com politics	news_politics|NP003
-foxnews com politics	news_politics|NP004
-politico com	news_politics|NP005
-thehill com	news_politics|NP006
-
-# News - Sports
-espn com	news_sports|NS001
-sports yahoo com	news_sports|NS002
-bleacherreport com	news_sports|NS003
-cbssports com	news_sports|NS004
-nbcsports com	news_sports|NS005
-si com	news_sports|NS006
-
-# News - Business/Finance
-bloomberg com	news_finance|NF001
-cnbc com	news_finance|NF002
-wsj com	news_finance|NF003
-ft com	news_finance|NF004
-reuters com business	news_finance|NF005
-finance yahoo com	news_finance|NF006
-
-# News - Technology
-techcrunch com	news_tech|NT001
-theverge com	news_tech|NT002
-wired com	news_tech|NT003
-arstechnica com	news_tech|NT004
-cnet com	news_tech|NT005
-engadget com	news_tech|NT006
-
-# News - Entertainment
-eonline com	news_entertainment|NE001
-people com	news_entertainment|NE002
-tmz com	news_entertainment|NE003
-variety com	news_entertainment|NE004
-hollywoodreporter com	news_entertainment|NE005
-
-# Automotive - Luxury
-bmw com	auto_luxury|AL001
-mercedes benz com	auto_luxury|AL002
-lexus com	auto_luxury|AL003
-audi com	auto_luxury|AL004
-porsche com	auto_luxury|AL005
-jaguar com	auto_luxury|AL006
-landrover com	auto_luxury|AL007
-tesla com	auto_luxury|AL008
-
-# Automotive - Mass Market
-ford com	auto_mass|AM001
-chevrolet com	auto_mass|AM002
-toyota com	auto_mass|AM003
-honda com	auto_mass|AM004
-hyundai com	auto_mass|AM005
-nissan com	auto_mass|AM006
-
-# Automotive - Reviews/Research
-edmunds com	auto_research|AR001
-kbb com	auto_research|AR002
-autotrader com	auto_research|AR003
-cars com	auto_research|AR004
-caranddriver com	auto_research|AR005
-motortrend com	auto_research|AR006
-
-# E-commerce - General
-amazon com	ecom_general|EG001
-ebay com	ecom_general|EG002
-walmart com	ecom_general|EG003
-target com	ecom_general|EG004
-costco com	ecom_general|EG005
-bestbuy com	ecom_general|EG006
-
-# E-commerce - Fashion
-nordstrom com	ecom_fashion|EF001
-macys com	ecom_fashion|EF002
-zappos com	ecom_fashion|EF003
-asos com	ecom_fashion|EF004
-zara com	ecom_fashion|EF005
-hm com	ecom_fashion|EF006
-
-# Travel
-expedia com	travel|TR001
-booking com	travel|TR002
-tripadvisor com	travel|TR003
-kayak com	travel|TR004
-hotels com	travel|TR005
-airbnb com	travel|TR006
-vrbo com	travel|TR007
-
-# Real Estate
-zillow com	real_estate|RE001
-realtor com	real_estate|RE002
-redfin com	real_estate|RE003
-trulia com	real_estate|RE004
-apartments com	real_estate|RE005
-
-# Health & Wellness
-webmd com	health|HE001
-mayoclinic org	health|HE002
-healthline com	health|HE003
-medicalnewstoday com	health|HE004
-nih gov	health|HE005
-
-# Education
-coursera org	education|ED001
-udemy com	education|ED002
-khanacademy org	education|ED003
-edx org	education|ED004
-linkedin com learning	education|ED005
-
-# Social Media
-facebook com	social|SO001
-instagram com	social|SO002
-twitter com	social|SO003
-linkedin com	social|SO004
-pinterest com	social|SO005
-reddit com	social|SO006
-tiktok com	social|SO007
-
-# Streaming/Entertainment
-netflix com	streaming|ST001
-hulu com	streaming|ST002
-disneyplus com	streaming|ST003
-hbomax com	streaming|ST004
-youtube com	streaming|ST005
-twitch tv	streaming|ST006
-spotify com	streaming|ST007
+linux mount command	2784028	SERVERS_MANAGED_HOSTING	7509
+travel expense	4821538	SOFTWARE_TRAVEL_EXPENSE	9052
+honda crv model year	8425111	AUTO_HONDA	9508
+ios in app ad	8358845	ADTECH_MOBILE_ADVERTISING	9440
+2u rack mount chassis	8602138	LAPTOP_COMPUTER_INDUSTRIAL_MEDICAL	9829
+cryovac container solution	8477724	BUSINESS_SERVICES_PACKAGING_FOOD	9581
+mahindra farm equipment	963735	HEAVY_EQUIPMENT_AGRICULTURAL_LANDSCAPE	9539
+bottle wine wine bottle	8377135	TMP_WINE_SPIRITS_EXP063018	9468
+vmware financ	8474775	VMWARE_BRANDED_PRODUCT	9579
+john deere 160 lawn tractor	8629265	EQUIPMENT_FORESTRY	9841
+startup invest fund	8524789	FINANCE_BANKING_VENTURE_CAPITAL	9692
+system electronic medical record	8551064	HEALTHCARE_EHR_EMR	9442
+banking consumer banking	8432797	FINANCE_BANKING_TECHNOLOGY	9510
+docker monitoring	1454481	DEV_APP_CONTAINERIZATION	7243
+time limit internet	8633545	SECURITY_WEB_FILTERING	9842
+sales rep territory sales forecast	8556050	SALES_PERFORMANCE_MGT	9372
+hypervisor snapshot replic	6313151	SERVERS_VIRTUALIZATION	9164
+free budget website	4076082	FINANCE_BUDGETING_FORECASTING	8954
+appzen expense report pricing	8395289	BUSINESS_APPS_TRAVEL_EXPENSE	9496
+internet softphone	8347191	VIDEO_CONFERENCING	5711
+pricing intelligence	8102100	SOFTWARE_WEBSITE_CRAWL_SCRAPE	9083
+best way get small business loan	8563787	BANKING_SMALL_BUSINESS_LOANS	9839
+hbase bicc	6546247	BIG_DATA_DATA_MANAGEMENT_ANALYSIS	9489
+voip wholesale provider	8599085	PHONE_VOIP	9826
+green python	8565708	DEV_PYTHON	9769
+employee engage corporat	8028442	HEALTHCARE_CORPORATE_WELLNESS	9314
+kimball data cloudera	6547401	BIG_DATA_DATA_MANAGEMENT_ANALYSIS	9489
+honda minivan hyundai veloster	8424242	AUTO_HYUNDAI	9507
+medic pain depress	7453985	HEALTHCARE_PAIN	7639
+aws monitor service	6781811	CLOUD_COMPUTING_AWS	9473
+innovat strateg planning	8503799	INNOVATION_CORPORATE	9393
+blog content deliver	6770465	BUSINESS_APPS_CONTENT_MANAGEMENT	9486
+video making compa	7526045	VIDEO_PRODUCTION	7137
+hr data management	729959	SAP_HR	9570
+web scraping tools	8077507	SOFTWARE_WEBSITE_CRAWL_SCRAPE	9083
+disney world customer service	721460	CUSTOMER_SERVICE	5495
+import customs clearance	8559021	SHIPPING_CUSTOMS_DRAWBACK	9746
+comp incentive	8457780	TRAVEL_CORPORATE_INCENTIVE	9425
+care health software	2025182	UPMC_HEALTHCARE_GENERAL	9400
+managed monitoring services	2476718	SOFTWARE_UNIFIED_MONITORING	7517
+distribution center bulk freight	8554951	BUSINESS_PROCESS_SHIPPING_FREIGHT	9723
+financ option small business	8624839	BANKING_SMALL_BUSINESS_LOANS	9839
+outbound marketing	442704	CALL_CENTER	9326
+st thomas cruise tour	8328682	ST_MAARTEN_CRUISE_VACATION	9428
+smart grid sensor	6983989	SOFTWARE_SMART_GRIDS_UTILITIES_MANUFACTURERS	9004
+enterprise collaboration system	8569097	SOFTWARE_CHAT_COLLABORATION	9775
+cyber flower	8613957	SECURITY_AWARENESS	9835
+blade server enclosure	370729	SERVERS_GENERIC	8713
+iso standard	4671336	DATA_CENTER	9126
+mechanical design	8503085	INNOVATION_CORPORATE	9393
+datacenter products	387161	DATA_CENTER	9126
+international harvester 434	8619903	EQUIPMENT_HEAVY	9838
+cloud comput security	6153289	SECURITY_CLOUD	9492
+sales pipeline velocity	747637	SALES_ENABLEMENT	9391
+iaas managed it service	8552338	TEAMLOGICIT_MSP	9718
+port detect	7920419	SECURITY_NETWORK	8191
+exchange mailbox	293706	DATA_BACKUP_RECOVERY_MID	9834
+online chat app	1468488	SOFTWARE_CHAT_COLLABORATION	9775
+employe benefit stud	7575527	UPMC_COMMERCIAL_BENEFITS	8994
+sales prospecting training	8560907	SALES_TRAINING	9754
+computer gaming maker	8385764	DEV_GAMING	9477
+dvd ram backup software	290225	CV_BACKUP_RECOVERY_EARLY	5085
+me registr review	8398961	SOFTWARE_EVENT_MGT	9167
+diseasespictures fibromyalgia	8456196	HEALTHCARE_CONDITION_ARTHRITIS	9543
+process itil	8574740	INFRASTRUCTURE_ITSM	9783
+preowned car wholesale	8420131	AUTO_GENERIC	9506
+cyber mini	8613864	SECURITY_AWARENESS	9835
+windows antivirus virus	144465	SECURITY_ANTI_VIRUS	4575
+project team management	1918030	SOFTWARE_PROJECT_MANAGEMENT	7829
+sql server enterprise vs standard	515799	SOFTWARE_ERP_GENERIC	9141
+mobile marketing technology	1041697	SOFTWARE_DIGITAL_ASSETT_MG_WORKFLOW_LABELING	8339
+server product	512110	MARKETING_SEARCH_ENGINE	9322
+parental videos	8634545	SECURITY_WEB_FILTERING	9842
+laptop pc best	8593881	LAPTOP_TABLET	9823
+starting loan business	8563680	BANKING_SMALL_BUSINESS_LOANS	9839
+funeral webcast service	7052257	SOFTWARE_VIRTUAL_MEETING	8447
+user experience ios app	8575851	DEV_APP_TESTING	9784
+nas aws	7546783	CLOUD_COMPUTING_AWS	9473
+game development android	4095374	DEV_APPLICATIONS_GAMES	7293
+google b2b	1543527	B2B_MARKETING_EARLY	3487
+webmd sleep apnea	8524102	HEALTHCARE_CONDITION_INSOMNIA	9690
+heart disease amputation	8487366	HEALTHCARE_CONDITION_DIABETES	9592
+how to build an ad network	8572513	ADTECH_AD_OPS_TRAFFICKING	9780
+healthcare it leaders	8615438	SECURITY_HEALTHCARE_MOBILE	9837
+ssl apache 2	1869179	SECURITY_SSL	7163
+lung chest pain	7453529	HEALTHCARE_PAIN	7639
+corpor social event app	8397404	SOFTWARE_ONLINE_EVENT_REGISTRATION	9499
+brand market email content	6770815	BUSINESS_APPS_CONTENT_MANAGEMENT	9486
+softwar window backup	6311679	NEC_BACKUP_RECOVERY	8839
+windows patch server	525461	SERVERS_GENERIC	8713
+aca mandat indepen	6959387	UPMC_EBENEFITS_AFFORDABLE_CARE_ACT	8295
+kerbero mit	6791373	BIG_DATA_GENERIC	9181
+palancar beach mexico	8369390	PLAYA_MIA_CRUISE_TOP	9452
+used zebra	5747109	RETAIL_RFID	6009
+risk factor copd	8524060	HEALTHCARE_CONDITION_COPD_EMPHYSEMA	9689
+cyber secur control	8579132	CYBER_THREAT	9788
+online fraud prevention tools	4217580	ECOMMERCE_FRAUD_DETECTION	6793
+emc autostart	293548	CV_BACKUP_RECOVERY_LATE	8934
+business travel incentive ital	8457724	TRAVEL_CORPORATE_INCENTIVE	9425
+healthcare data management	8615433	SECURITY_HEALTHCARE_MOBILE	9837
+hotel content manag	6147431	SALES_PARTNER_CHANNEL	6577
+app customer experience system	8504832	INNOVATION_CORPORATE	9393
+long range plan	5745502	RETAIL_RFID	6009
+sanyo vm 4500	8611752	CLOUD_VIRTUALIZATION_VMWARE	9833
+zero down nissan frontier	8538866	AUTO_NISSAN	9708
+powerpoint dashboards	5595510	SOFTWARE_ERP_GENERIC	9141
+enrol insur paid benefit	6961067	UPMC_EBENEFITS_BENEFITS_ADMIN	8995
+police mobile data terminals	8604192	LAPTOP_COMPUTER_INDUSTRIAL_MEDICAL	9829
+inform analys train	8476435	BUSINESS_APPS_BUSINESS_INTELLIGENCE	9469
+small business accounting cost	7184243	SOFTWARE_ERP_ACCOUNTING	7307
+best onlin busi start india	8354467	SMALL_BUSINESS_STARTUP	9444
+exceptional digital user experience	8444158	BUSINESS_STRATEGY_CUSTOMER_EXPERIENCE_VOICE	9530
+brand manag pinterest	8378987	ADTECH_SOCIAL_MEDIA_ADVERTISING	9392
+channel marketing strategy	715769	TBW_COMPETITIVE_ALL	9063
+barcode scanner retail transaction	8473476	BUSINESS_APPS_POINT_OF_SALE	9578
+electronics medical records	400473	HEALTHCARE_IT	8670
+application monitor solution	7209361	SOFTWARE_MONITORING_APM	7979
+web server log file analy	8580464	SOFTWARE_MONITORING_LOG	9789
+vivint apartment	8498756	SECURITY_HOME	8175
+what is the sql server	5984601	CV_BACKUP_RECOVERY_MID	5089
+ring watch women	8361041	WATCHES_LUXURY	8929
+market strategies research	1536100	MARKETING_STRATEGY_PLANNING	9119
+web presence optimiz	7014803	MARKETING_PERSONALIZATION	6505
+server ghost	5053093	CLOUD_IAAS	9821
+erp success	6108611	SOFTWARE_ERP_GENERIC	9141
+boot cd linux	6501301	DEV_OS_LINUX	6409
+how start littl busi	8355036	SMALL_BUSINESS_STARTUP	9444
+help desk supervisor	1860455	CUSTOMER_SERVICE_GENERIC	7625
+budget health insurance	43034	INSURANCE_HEALTH	391
+kpi inventory	8626753	BI_BUSINESS_INTELLIGENCE	9840
+gps truck track	8550244	FLEET_MANAGEMENT	1833
+system bank	8564751	BANKING_TECHNOLOGY	9768
+client centric telesales	8394395	SALES_ENABLEMENT_TRAINING	9493
+office expense	4821267	TRAVEL_BUSINESS	5129
+wireless network tool	4242657	SECURITY_NETWORK	8191
+how improve retail store	8503473	INNOVATION_CORPORATE	9393
+host cms solut	6878789	SERVERS_MANAGED_HOSTING	7509
+enterprise mail	2779448	SECURITY_HEALTHCARE_MOBILE	9837
+rate insurance burial	8465065	INSURANCE_LIFE	4131
+database service providers	238595	DATABASE_REMOTE_DBA	9811
+customer experience expert	109525	CUSTOMER_EXPERIENCE_CX	9815
+contract sale forc	8339500	BUSINESS_APPS_CONTRACT_MANAGEMENT	9524
+hyundai genesis jd powers	8423241	AUTO_HYUNDAI	9507
+loan honda luxury car	8423351	AUTO_HONDA	9508
+scott vaughan	8079017	TBW_COMPETITIVE_ALL	9063
+lung disease women	8487794	HEALTHCARE_CONDITION_LUNG_CANCER	9593
+job description strategic talent	8390874	HUMAN_RESOURCES_HCM_TALENT	9488
+ski shop epoint sale system	8448700	SOFTWARE_POINT_OF_SALE_SYSTEM	8907
+potable water pipeline	8514539	FACILITY_MANAGEMENT_WASTEWATER_WATER_TREATMENT	9623
+app multipl event	8399478	SOFTWARE_ONLINE_EVENT_REGISTRATION	9499
+training buyer journey	6608355	MARKETING_AUTOMATION	9191
+window server train video	6871445	SERVERS_GENERIC	8713
+cpu 2800	8602648	LAPTOP_COMPUTER_INDUSTRIAL_MEDICAL	9829
+nps score consumer satisfaction	8494613	MARKETING_VIRTUAL_FOCUS_GROUPS	9601
+workpartners short term disability manag program	8101722	UPMC_Workpartners_Updated	9087
+antivirus software mobile phone	8432219	SECURITY_ANTI_VIRUS	4575
+ruby rails ajax	8384861	DEVOPS	9765
+exclusive financial advisor leads	8009942	WEALTH_MANAGEMENT_ADVISORS	8809
+small business merchant account	1476810	BANKING_SMALL_BUSINESS_LOANS	9839
+patient satisfaction survey	1999212	UPMC_HEALTHCARE_GENERAL	9400
+server audit	511545	SECURITY_NETWORK	8191
+tracking business expense	8395531	BUSINESS_APPS_TRAVEL_EXPENSE	9496
+fire safety automation building management	8552031	FACILITY_MANAGEMENT_ENERGY_SMART_BUILDING	9716
+retire contribute	8488775	WEALTH_MANAGEMENT_RETIREMENT_401K	9594
+small business marketing technique	750733	B2B_MARKETING	8479
+best center emr	7633283	UPMC_HEALTHCARE_GENERAL	9400
+window virtual desktop	4221	CLOUD_VIRTUALIZATION_DESKTOP_VDI	9767
+cloud server	18830	CLOUD_VIRTUALIZATION_VMWARE	9833
+vsphere backup and recovery	6013484	CV_VIRTUALIZATION_CLOUD_MID	7613
+holman oven	7254031	EQUIPMENT_RESTAURANT	6809
+collateral management risk	7971483	SOFTWARE_BANKING_SYSTEMS	8736
+hadoop vs mapreduc	6791151	BIG_DATA_GENERIC	9181
+hp convergedsystem sap hana	8610748	CLOUD_VIRTUALIZATION_VMWARE	9833
+mongodb couchbase	8643482	BIG_DATA_NOSQL	9848
+business business dashboard intelligen	8477117	BUSINESS_APPS_BUSINESS_INTELLIGENCE	9469
+buying journey leadlander	6600005	MARKETING_AUTOMATION	9191
+computer migrat software	7587113	CLOUD_MIGRATION_INTEGRATION	7579
+chev tahoe rebate	8540352	AUTO_CHEVY	9709
+alcohol supplier conversion optimiz service	7977235	Lucidworks_KWs_2018_02_05	9355
+vmware manag software	8611139	CLOUD_VIRTUALIZATION_VMWARE	9833
+selling client centric	8394343	SALES_ENABLEMENT_TRAINING	9493
+python online gambling	8386125	DEV_GAMING	9477
+seo optimiz expert	7979065	Lucidworks_KWs_2018_02_05	9355
+employee health coverage	36929	UPMC_Commercial_Updated	9085
+hopper bin	8566163	EQUIPMENT_HEAVY	9838
+sales improve	747303	B2B_MARKETING	8479
+social media ad budget	8378981	ADTECH_SOCIAL_MEDIA_ADVERTISING	9392
+virtuemart cart	8640399	ECOMMERCE_GENERAL	9843
+monaco traveladvisor	8510968	TRAVEL_EUROPE	9402
+data manage function	8591563	BIG_DATA_ETL_DATA_MGT	9822
+cassandra statistics	6544343	BIG_DATA_GENERIC	9181
+click fraud identity	8392604	SECURITY_FRAUD_DETECTION	4573
+botnet threat bot behavioral detection	8528841	SECURITY_BOT_DETECTION	9696
+2tb san backup	8396284	STORAGE_SERVERS_SAN_NAS	9498
+innovation stratgegy machine learning	8483068	BUSINESS_STRATEGY_INNOVATION_TRANSFORMATION	9589
+engine optimization strategy	8011925	MARKETING_STRATEGY_PLANNING	9119
+improve performance manag	8303036	SALES_ENABLEMENT	9391
+search engine optimiz montgomery county md	7978735	Lucidworks_KWs_2018_02_05	9355
+wordpress advertising	8571756	DEV_WORDPRESS	9779
+sales training and coaching	8560881	SALES_TRAINING	9754
+cube office renovation	8312637	CORPORATE_OFFICE_ART	9423
+client experience feedback form	8494030	MARKETING_VIRTUAL_FOCUS_GROUPS	9601
+india cybercrime	8392614	SECURITY_FRAUD_DETECTION	4573
+used auto dealer invoice	8420196	AUTO_GENERIC	9506
+monitor computer software	434655	SOFTWARE_UNIFIED_MONITORING	7517
+ms unified communications	30269	PHONE_SYSTEMS_VIRTUAL	9831
+risk reversal option strateg	8520971	WEALTH_MANAGEMENT_RISK	8904
+transportation physical asset	8553603	BUSINESS_APPS_ENTERPRISE_ASSET_MANAGEMENT_APM	9721
+pmo tools	1731833	SOFTWARE_PROJECT_MANAGEMENT	7829
+swipe to	2735179	B2B_MARKETING_LATE	8197
+gsm railway	6207081	NETWORKING_ROUTERS	9185
+business disruption corporate	8553833	BUSINESS_STRATEGY_BUSINESS_CONTINUITY	9722
+factory incentive honda hrv	8424823	AUTO_HONDA	9508
+electronic checkout shoppingcart	8466166	BANKING_MERCHANT_SERVICES	9782
+stingray beach carnival victory	8369316	PLAYA_MIA_CRUISE_TOP	9452
+product page conversion optimiz	7022265	MARKETING_FUNNEL_CONVERSION	6523
+access control login	6518895	SECURITY_AUTHENTICATION_AUTHORIZATION_IAM	8535
+eprocurement gov	5443630	SOFTWARE_ERP_PROCUREMENT	7317
+financial models company	792407	CORPORATE_PERFORMANCE_MANGEMENT	3293
+health service conversion rate optimiz	7232403	ECOMMERCE_OPTIMIZATION	9324
+montana captive insurance association	7985575	INSURANCE_RISK_CAPTIVE	8851
+language filter	8635106	SECURITY_WEB_FILTERING	9842
+office desks chairs	5161067	EQUIPMENT_OFFICE	8873
+android device remote access	7829623	SOFTWARE_REMOTE_ACCESS	8015
+downtime report	4237677	SIEM	3969
+kerbero window	6791391	BIG_DATA_GENERIC	9181
+multichannel seller	5795827	SALES_PARTNER_CHANNEL	6577
+remov tool virus	8432616	SECURITY_ANTI_VIRUS	4575
+best demand generation	4242835	TBW_COMPETITIVE_ALL	9063
+data analysis machine learning	8561643	BIG_DATA_ANALYTICS	9757
+backup restore rubrik	8444881	DATA_MGMT_BACKUP_RECOVERY	9531
+virtual customer service cloud contact center	8443641	BUSINESS_APPS_CLOUD_CALL_CENTER	9529
+ponemon institute cost data breach	8000304	HEALTHCARE_INFORMATICS	8696
+how use router hub	7878441	NETWORKING_ROUTERS	9185
+mandriva linux	5515893	VIDEO_STREAMING	9041
+leadership assessment	8600880	HUMAN_RESOURCES_PERFORMANCE_MGT	9828
+off highway truck new holland	8452911	HEAVY_EQUIPMENT_CONSTRUCTION_MINING_FORESTRY	9540
+birt api	8586383	AWS_NOSQL	9808
+john deere riding lawn mower accessories	8630970	EQUIPMENT_FORESTRY	9841
+plastic and reconstructive surgery emr	7634853	UPMC_HEALTHCARE_GENERAL	9400
+switzerland must visit	8511175	TRAVEL_EUROPE	9402
+beach house incentive travel	8446267	TRAVEL_CORPORATE_RETREATS	9459
+hitman pro full	7692323	SECURITY_ENDPOINT	8926
+business video service marketing	714345	CONTENT_DELIVERY_NETWORK	2276
+neurosurgery medical software	7634611	HEALTHCARE_IT	8670
+service level aggregation	8495958	BUSINESS_STRATEGY_IT_OUTSOURCING	9606
+main memory database meteor	8468139	DEV_REALTIME_INMEM_DATABASE	9559
+consult market analysis	8172333	BUSINESS_STRATEGY_MANAGEMENT_CONSULTING	9544
+wine tasting french wine	8378318	TMP_WINE_SPIRITS_EXP063018	9468
+foundation certificate in it service management	8575287	INFRASTRUCTURE_ITSM	9783
+aws iaas paas	7546459	CLOUD_COMPUTING_AWS	9473
+software analysis process	8596607	BIG_DATA_REGRESSION_MODELING	9825
+personaliz case study	7014509	MARKETING_PERSONALIZATION	6505
+fingerprint identity	7466727	SECURITY_BIO_METRICS	9766
+microsoft system management server	432598	SERVERS_GENERIC	8713
+metal fabrication manufacturer	6285083	SOFTWARE_ERP_MANUFACTURING	7305
+family medicine ehr	7634191	HEALTHCARE_IT	8670
+remarketing marketo	6606517	MARKETING_AUTOMATION	9191
+auction honda odyssey	8424571	AUTO_HONDA	9508
+ip phone features	8607390	PHONE_SYSTEMS_VIRTUAL	9831
+customer experience coordinator	7644409	INNOVATION_CORPORATE	9393
+emergency medicine health software	7961329	HEALTHCARE_IT	8670
+system tool error	8581315	SOFTWARE_MONITORING_LOG	9789
+press ganey patient satisfaction survey question	7940549	UPMC_HEALTHCARE_GENERAL	9400
+smarthome alert notification	8498255	SECURITY_SMART_HOME	9610
+geological modeling	8595592	BIG_DATA_REGRESSION_MODELING	9825
+hospital financial dashboard	1885094	CORPORATE_PERFORMANCE_MANGEMENT	3293
+lift tickets snowmass	5745468	RETAIL_RFID	6009
+ad aware program	3895221	SECURITY_NETWORK_PENETRATION	9188
+defeating websense	7973791	SECURITY_GATEWAY	9523
+video hosting search	4843941	VIDEO_STREAMING	9041
+one medical	7962275	HEALTHCARE_IT	8670
+best free porn block	8636833	SECURITY_WEB_FILTERING	9842
+building energy management building efficiency	8552106	FACILITY_MANAGEMENT_ENERGY_SMART_BUILDING	9716
+sludge drinking water	8514753	FACILITY_MANAGEMENT_WASTEWATER_WATER_TREATMENT	9623
+massive parallel hortonwork	6548171	BIG_DATA_DATA_MANAGEMENT_ANALYSIS	9489
+internet marketing performance metric	8422335	MARKETING_ATTRIBUTION_PERFORMANCE	9215
+sales comp plan	5796978	SALES_CONSULTING	8921
+blog inbound marketing	8011609	MARKETING_INBOUND	9252
+direct email2	7018637	B2B_MARKETING_MID	6509
+mobile resource management	491332	MOBILE_EMM	9777
+issue track project manag	8383919	BUSINESS_APPS_CHAT_COLLABORATION	9471
+vmware stencils	8611062	CLOUD_VIRTUALIZATION_VMWARE	9833
+www linux com	6506157	DEV_OS_LINUX	6409
+network event market	8398649	SOFTWARE_EVENT_MGT	9167
+amazon cloud comput	6781289	CLOUD_COMPUTING_AWS	9473
+supply chain cost reduction	6285643	SOFTWARE_ERP_MANUFACTURING	7305
+infosphere kognitio	6547233	BIG_DATA_GENERIC	9181
+market research survey softwar	8584549	FOCUSVISION_SURVEY_VOICE_CUSTOMER	9794
+exchange 2010 brick level backup	249557	CV_BACKUP_RECOVERY_MID	5089
+emr vendors	477119	UPMC_HEALTHCARE_GENERAL	9400
+smarthome simplisafe	8498353	SECURITY_HOME	8175
+what is brand management	5380728	SOFTWARE_DIGITAL_ASSETT_MG_WORKFLOW_LABELING	8339
+budget financ compan	8626033	BANKING_SMALL_BUSINESS_LOANS	9839
+recover exchange database	501616	CV_BACKUP_RECOVERY_MID	5089
+video conferenc unit	7054379	SOFTWARE_VIRTUAL_MEETING	8447
+lefty golf swing	6029846	SPORTS_GOLF_PERFORMANCE_AIDS	7661
+fathers day golf gifts	7602137	SPORTS_GOLF_PERFORMANCE_AIDS	7661
+remote access computers	6001011	SOFTWARE_REMOTE_ACCESS	8015
+buying journey sales force	6600045	MARKETING_AUTOMATION	9191
+oracle config pricing	5983212	SALES_CPQ	6883
+data center job	386791	DATA_CENTER	9126
+smart travel incentive inc	8457277	TRAVEL_CORPORATE_INCENTIVE	9425
+travel manag software review	8459197	TRAVEL_BUSINESS	5129
+toyota truck toyota luxury car	8428472	AUTO_TOYOTA	9509
+64 bit window server	6829991	SERVERS_MANAGED_HOSTING	7509
+voip calls to india	8598161	PHONE_VOIP	9826
+jenkins json	6652505	DEV_OPS	9475
+linux kismet	3915000	DEV_OS_LINUX	6409
+gps automobile fleet track	8549478	FLEET_MANAGEMENT	1833
+report service dashboard	8577226	BI_DASHBOARDS_VISUALIZATION	9786
+market event convent	8398111	SOFTWARE_EVENT_MGT	9167
+cache appliance	2199	SECURITY_ADVANCED_SECURE_GATEWAY	8529
+customer loyalty service recovery	8443980	BUSINESS_STRATEGY_CUSTOMER_EXPERIENCE_VOICE	9530
+reunion cruise	7081433	TRAVEL_CRUISES	8989
+construction equipment heavy	8618347	EQUIPMENT_HEAVY	9838
+wallets that protect credit cards	1054849	RETAIL_RFID	6009
+kvm switch 8	8562742	DATA_CENTER_SWITCHES	9759
+lcd flat panel computer monitors	8603391	LAPTOP_COMPUTER_INDUSTRIAL_MEDICAL	9829
+shock pallet	8566636	SHIPPING_PALLETS	9770
+enterpris event manag softwar	8398895	SOFTWARE_EVENT_MGT	9167
+free online collaborat tool	8383863	BUSINESS_APPS_CHAT_COLLABORATION	9471
+no invest busi opportun	8355543	SMALL_BUSINESS_STARTUP	9444
+soy protein over 40	8486083	HEALTHCARE_DIETARY_SUPPLEMENTS	9591
+employee screening	8522066	LOCALBLOX_HUMAN_RESOURCES	9674
+enterprise mobile cloud computing	477302	MOBILE_MDM	9827
+citrix xenserver version	8395562	STORAGE_SERVERS_VIRTUALIZATION	9497
+great patient engagement	8552534	HEALTHCARE_PATIENT_ENGAGEMENT_EXPERIENCE	9719
+product market growth strat	8485205	BUSINESS_STRATEGY_INNOVATION_PRODUCT_DESIGN	9590
+what is solid state drive	28149	STORAGE_SSD	4961
+application security scanning tools	5504411	SECURITY_APPLICATION	8831
+building sustainability packaging	8455178	BUSINESS_STRATEGY_SUSTAINABILITY	9541
+bargain nissan luxury car	8539212	AUTO_NISSAN	9708
+collater manag risk	8564393	BANKING_TECHNOLOGY	9768
+walk in freezer price	7256737	EQUIPMENT_RESTAURANT	6809
+lead gen convert leads	8532202	MARKETING_LEAD_GEN	9377
+sharepoint 2007 requirements	295074	CV_BACKUP_RECOVERY_MID	5089
+nas attached storage	8609614	STORAGE	9832
+chev camaro dealer invoice	8539935	AUTO_CHEVY	9709
+human resource software companies	8076817	HUMAN_RESOURCES_HCM_HRIS	9050
+signin polic	6536443	SECURITY_AUTHENTICATION_AUTHORIZATION_IAM	8535
+business application ecommerce	8638261	ECOMMERCE_GENERAL	9843
+hyundai loader	8452153	HEAVY_EQUIPMENT_CONSTRUCTION_MINING_FORESTRY	9540
+fish exporting	8582426	SHIPPING_LOGISTICS_INTERNATIONAL	9790
+vehicle suv	8420287	AUTO_GENERIC	9506
+vm fusion vs parallels	5200947	CLOUD_VIRTUALIZATION_VMWARE	9833
+linux per	5195230	DEV_OS_LINUX	6409
+free download movie 2011	7744103	VIDEO_STREAMING_CONSUMER	7853
+gantt free	1884747	BUSINESS_APPS_DASHBOARDS_VISUALIZATION	9470
+ehr emr phr	4156033	UPMC_HEALTHCARE_GENERAL	9400
+boom truck volvo construction	8450880	HEAVY_EQUIPMENT_CONSTRUCTION_MINING_FORESTRY	9540
+match employee donation	8584829	HUMAN_RESOURCES_GRANT_MATCH_PHILANTHROPY	9796
+barracuda filter	248913	NETWORKING_APPLICATION_DELIVERY_CONTROL_LOAD_BALANCE	9776
+manufactur dashboard exampl	8383299	BUSINESS_APPS_DASHBOARDS_VISUALIZATION	9470
+insurance broker aon	6242263	INSURANCE_RISK_CAPTIVE	8851
+variable mortgage	2125658	FINANCE_BANKING_MORTGAGE	9536
+text books medical	7962525	UPMC_HEALTHCARE_GENERAL	9400
+performance manag personnel	8390383	HUMAN_RESOURCES_HCM_TALENT	9488
+next generation firewall wikipedia	4310982	SECURITY_FIREWALL	8928
+business comput secur	8614486	SECURITY_AWARENESS	9835
+boot linux usb	6501317	DEV_OS_LINUX	6409
+router config	229720	NETWORKING_ROUTERS	9185
+product innov strateg	8485093	BUSINESS_STRATEGY_INNOVATION_PRODUCT_DESIGN	9590
+statistics data analysis	8596696	BIG_DATA_REGRESSION_MODELING	9825
+1300 server	352769	SERVERS_GENERIC	8713
+future store	5744968	RETAIL_RFID	6009
+aws exam questions	6395073	AWS	9791
+citrix server versions	379340	CV_VIRTUALIZATION_CLOUD_MID	7613
+video conferenc brand	6941597	SOFTWARE_VIRTUAL_MEETING	8447
+sales quota appraisal	8556064	SALES_PERFORMANCE_MGT	9372
+sql server database migrat	7336755	CLOUD_MIGRATION_INTEGRATION	7579
+practice website	4112331	HEALTHCARE_IT	8670
+websense competitor	8437418	SECURITY_GATEWAY	9523
+chainsaw parts stihl	8630729	EQUIPMENT_FORESTRY	9841
+free essay proofreading	8586925	SOFTWARE_ONLINE_PROOFING	9810
+rf tracker	1015744	RETAIL_RFID	6009
+search engine marketing best practice	7910047	SEARCH_SEO_OPTIMIZATION	8179
+payroll software small business	743016	BANKING_SMALL_BUSINESS_LOANS	9839
+anti firewall virus	99490	SECURITY_ANTI_VIRUS	4575
+label printer smart	484880	RETAIL_RFID	6009
+certification course training program	8507817	BUSINESS_APPS_LMS_ELEARNING	9614
+antivirus best free	6138363	SECURITY_ANTI_VIRUS	4575
+norton antivirus official website	3898460	SECURITY_ANTI_VIRUS	4575
+massive parallel birt	6548143	BIG_DATA_GENERIC	9181
+cluster hooks	7546981	DEV_APP_CONTAINERIZATION	7243
+netapp backup and recovery reviews	5779004	DATA_BACKUP_RECOVERY_LATE	9163
+secure messag business information	8384061	BUSINESS_APPS_CHAT_COLLABORATION	9471
+software recruit	7174385	HUMAN_RESOURCES_RECRUIT_ACQUIRE	9014
+telemarketing boston	754189	VIDEO_PRODUCTION	7137
+toyta corolla trade in	8428708	AUTO_TOYOTA	9509
+top business process outsourcing companies	8563136	SOFTWARE_ROBOTIC_PROCESS_AUTOMATION	9763
+network accounting software	492965	SOFTWARE_ERP_ACCOUNTING	7307
+event log print	8580873	SOFTWARE_MONITORING_LOG	9789
+massey ferguson farm equipment	8449373	HEAVY_EQUIPMENT_AGRICULTURAL_LANDSCAPE	9539
+agnostic blogs	8616043	SECURITY_HEALTHCARE_MOBILE	9837
+fitness incentive	8431109	HEALTHCARE_CORPORATE_WELLNESS	9314
+roadtec tub grinder	8453189	HEAVY_EQUIPMENT_CONSTRUCTION_MINING_FORESTRY	9540
+uses search engine optimiz	7979265	ECOMMERCE_OPTIMIZATION	9324
+honeywell connect	7636477	HEALTHCARE_TELE_MEDICINE	8668
+hr software pricing	8076733	HUMAN_RESOURCES_HCM_HRIS	9050
+tractor front end	8622993	EQUIPMENT_HEAVY	9838
+virtual host azure	8384537	CLOUD_COMPUTING_IAAS	9474
+cryptocurrenc banking platform	8433682	FINANCE_BANKING_TECHNOLOGY	9510
+facts about cloud	8570974	SECURITY_CLOUD_CASB	9778
+sign in 2factor	6535111	SECURITY_AUTHENTICATION_AUTHORIZATION_IAM	8535
+cognizant big data	6544723	BIG_DATA_DATA_MANAGEMENT_ANALYSIS	9489
+cablevision voip	8597091	PHONE_VOIP	9826
+pallet bin	8566285	SHIPPING_PALLETS	9770
+employer health insurance	44405	HEALTHCARE_GROUP_HEALTH_INSURANCE	5451
+innovat skill	8503686	INNOVATION_CORPORATE	9393
+cellular signage customer experience	8508942	RETAIL_DIGITAL_SIGNAGE	9816
+hbase hadoop	1893770	BIG_DATA_NOSQL	9848
+treatment plant groundwater	8514858	FACILITY_MANAGEMENT_WASTEWATER_WATER_TREATMENT	9623
+public tftp server	5475363	SERVERS_GENERIC	8713
+garden tractor cab	8619332	EQUIPMENT_HEAVY	9838
+amazon aws server	5893999	CLOUD_COMPUTING_AWS	9473
+support software com	753549	CUSTOMER_SERVICE_HELP_DESK	9824
+socially responsible investments	1754983	WEALTH_MANAGEMENT_ESG	8872
+sap digital supply chain	8386277	SAP_BRANDED_KWS	9478
+client server database	464884	SIEM	3969
+etf trader	1811820	WEALTH_MANAGEMENT_ETFS	7301
+buy used bucket trucks	8631280	EQUIPMENT_FORESTRY	9841
+cloudera business intelligence	6544383	BIG_DATA_DATA_MANAGEMENT_ANALYSIS	9489
+marketing outdoor	1544494	B2B_MARKETING	8479
+hitachi global storage	8609340	STORAGE	9832
+cheap cloud host	8591458	CLOUD_IAAS	9821
+computer automated dispatch	1039876	SOFTWARE_FIELD_SERVICES	9057
+hand trailers	8619561	EQUIPMENT_HEAVY	9838
+coupa advantage	8468792	BUSINESS_APPS_PROCUREMENT	9560
+magic quadrant for business intelligence platforms	4464	CORPORATE_PERFORMANCE_MANGEMENT	3293
+vdi monitor	6803099	CLOUD_VIRTUALIZATION_DESKTOP_VDI	9767
+free pc backup software	248225	CV_BACKUP_RECOVERY_EARLY	5085
+kpi strategic innovation	8483129	BUSINESS_STRATEGY_INNOVATION_TRANSFORMATION	9589
+debian linux install	297338	VIDEO_STREAMING	9041
+h 264 codec	5514891	VIDEO_STREAMING	9041
+veam vmware backup	24785	VMWARE_BRANDED_PRODUCT	9579
+employ outsourc employ tax	8309968	HUMAN_RESOURCES_GHRO	9416
+alternative funds investment	770075	WEALTH_MANAGEMENT_ESG	8872
+futur linux	6825439	DEV_OS_LINUX	6409
+atandt parental control	8636937	SECURITY_WEB_FILTERING	9842
+chargeback representment	7247467	ECOMMERCE_FRAUD_DETECTION	6793
+connect gotomeeting	7051739	SOFTWARE_VIRTUAL_MEETING	8447
+what s the cloud	8570656	SECURITY_CLOUD_CASB	9778
+unix fingerprint	6539989	SECURITY_AUTHENTICATION_AUTHORIZATION_IAM	8535
+nosql qlikview	6548569	BIG_DATA_GENERIC	9181
+sharepoint back up	2649	DATA_BACKUP_RECOVERY_MID	9834
+mulesoft cloud	8137335	BIG_DATA_DATA_INTEGRATION	9216
+service social communit	7168609	SOCIAL_MEDIA_MANAGEMENT	6625
+postgre server	5500826	DATA_BACKUP_RECOVERY_MID	9834
+dealer incentive preowned chevrolet	8541950	AUTO_CHEVY	9709
+reputational risk management	5741764	SOFTWARE_ERP_RISK_COMPLIANCE	9282
+ecommerce studies	8638753	ECOMMERCE_GENERAL	9843
+compar law obamacare	6960357	UPMC_EBENEFITS_AFFORDABLE_CARE_ACT	8295
+farm machine cub cadet	8450052	HEAVY_EQUIPMENT_AGRICULTURAL_LANDSCAPE	9539
+transport freight	8555668	BUSINESS_PROCESS_SHIPPING_FREIGHT	9723
+mac os x free antivirus	6139499	SECURITY_ANTI_VIRUS	4575
+usaa reward card	8012881	INSURANCE_MILITARY	8827
+competitor intelligence	8101981	SOFTWARE_WEBSITE_CRAWL_SCRAPE	9083
+d is for diabetes	8487061	HEALTHCARE_CONDITION_DIABETES	9592
+gmc terrain loan	8542964	AUTO_GMC	9710
+ssl vpn active director	8395704	SECURITY_AUTHENTICATION_AUTHORIZATION_IAM	8535
+larg event product	8399442	SOFTWARE_EVENT_MGT	9167
+edmund nissan sentra	8538910	AUTO_NISSAN	9708
+rotary swing golf	6035812	SPORTS_GOLF_PERFORMANCE_AIDS	7661
+cloud server	18830	CLOUD_IAAS	9821
+domestic travel cancel	8501170	INSURANCE_TRAVEL	6449
+tool ecommerce	8389583	ECOMMERCE_GENERAL	9843
+point of sale software in	7989510	SOFTWARE_POINT_OF_SALE_SYSTEM	8907
+vascular surgery	5144482	HEALTHCARE_CONDITION_SURGERY	9547
+onlin wed planner degre	8397053	SOFTWARE_EVENT_MGT	9167
+etail amazon store	8389330	ECOMMERCE_IMPLEMENTATION_OPTIMIZATION	9487
+data secur compan	7912761	SECURITY_NETWORK_PENETRATION	9188
+voip phones for business	8598700	PHONE_VOIP	9826
+business partner manag	7019873	SALES_PARTNER_CHANNEL	6577
+future of retail banking	7092833	SOFTWARE_BANKING_SYSTEMS	8736
+cholesterol calcium	8486461	HEALTHCARE_DIETARY_SUPPLEMENTS	9591
+orlando magento developer	8638273	ECOMMERCE_GENERAL	9843
+temperature control factory	8512934	FACILITY_MANAGEMENT_HVAC	9621
+windows server monitoring	1863379	SOFTWARE_UNIFIED_MONITORING	7517
+vivint fuel tank monitor	8498944	SECURITY_HOME	8175
+lead gen b2c	8532243	MARKETING_LEAD_GEN	9377
+mobile site performance	4845496	CONTENT_DELIVERY_NETWORK_CDN	9027
+tape backup software for linux	24692	CV_BACKUP_RECOVERY_MID	5089
+pric maxwell health	7697317	UPMC_EBENEFITS_COMPETITORS	6901
+log isa	427117	SOFTWARE_MONITORING_LOG	9789
+course comput forensic	8613917	SECURITY_AWARENESS	9835
+help desk information technology	1860421	CUSTOMER_SERVICE_HELP_DESK	9824
+manufacturing application	1032205	SOFTWARE_ERP_MANUFACTURING	7305
+about employee engag	8590502	HUMAN_RESOURCES_ENGAGEMENT_RETENTION	9820
+eloqua 6sense	6602035	MARKETING_AUTOMATION	9191
+product design manag	8484856	BUSINESS_STRATEGY_INNOVATION_PRODUCT_DESIGN	9590
+patient engage hipaa	8560571	CLOUD_HIPAA_COMPLIANT	9753
+certif breach	6521987	SECURITY_AUTHENTICATION_AUTHORIZATION_IAM	8535
+information secur manag	7913107	SECURITY_AWARENESS	9835
+secur harden linux	6828689	DEV_OS_LINUX	6409
+enhanc ui ux design ecommerce	8449011	DESIGN_UI_UX	9805
+for sale truck	2891262	EQUIPMENT_FOOD_TRUCKS	6813
+digital marketing trends 2017	8011898	MARKETING_STRATEGY_PLANNING	9119
+online help desk software free	740905	CUSTOMER_SERVICE_GENERIC	7625
+new hyundai year end clearance	8424204	AUTO_HYUNDAI	9507
+marketing symposium	8536220	BUSINESS_APPS_EVENT_MGT	9704
+singl sign fingerprint	6537175	SECURITY_AUTHENTICATION_AUTHORIZATION_IAM	8535
+commercial office chair	8312525	CORPORATE_OFFICE_ART	9423
+actuate decision support	6542639	BIG_DATA_GENERIC	9181
+internet search marketing	731852	MARKETING_ANALYTICS	1558
+computer networking solutions	468475	SIEM	3969
+app customer experience	7638381	INNOVATION_CORPORATE	9393
+channel marketing optimizely	6600279	MARKETING_AUTOMATION	9191
+lovgate virus remov	8431741	SECURITY_ANTI_VIRUS	4575
+gamification learning learning	8508113	SOFTWARE_LMS_ELEARNING	9785
+blood sugar hypoglycemia	8486989	HEALTHCARE_CONDITION_DIABETES	9592
+metals risk management	5741605	SOFTWARE_ERP_RISK_COMPLIANCE	9282
+chev luxury car review	8541282	AUTO_CHEVY	9709
+new chevrolet money down	8541017	AUTO_CHEVY	9709
+competitive intelligence firm	8101927	SOFTWARE_WEBSITE_CRAWL_SCRAPE	9083
+pbx call accounting software	180331	SOFTWARE_ERP_ACCOUNTING	7307
+virus antivirus	271028	SECURITY_ANTI_VIRUS	4575
+cadillac cts wholesale	8546160	AUTO_CADILLAC	9712
+retail engage future ecommerce	8449170	DESIGN_UI_UX	9805
+esx syslog	8580507	SOFTWARE_MONITORING_LOG	9789
+quality office chair	8020076	EQUIPMENT_OFFICE	8873
+time expense	1038153	TRAVEL_BUSINESS	5129
+troy bilt log splitters	8632774	EQUIPMENT_FORESTRY	9841
+success compan	7584851	MARKETING_ADVOCACY_REFERRAL	7565
+fleet gps semi truck manag	8549426	FLEET_MANAGEMENT	1833
+zycus discounting	8469023	BUSINESS_APPS_PROCUREMENT	9560
+commercial recept furniture	8533678	BIZCHAIR_RESTAURANT_CHAIRS_TABLES	9700
+windows desktop service	8563081	AWS_AZURE	9762
+emr meaningful use	4156441	HEALTHCARE_IT	8670
+lead gen pitch	7016385	SALES_ENABLEMENT	9391
+organize project	5961432	SOFTWARE_PROJECT_MANAGEMENT	7829
+edu information secur	7912849	SECURITY_AWARENESS	9835
+linux networkmanag	6827025	DEV_OS_LINUX	6409
+shopify conversion optimiz	7232681	Lucidworks_KWs_2018_02_05	9355
+home business business opportunity	1614058	HANDYMAN_FRANCHISE	9461
+employ offshor	8367607	HUMAN_RESOURCES_GHRO	9416
+learning software training module	8508273	SOFTWARE_LMS_ELEARNING	9785
+pain rais blood pressur	7581597	HEALTHCARE_PAIN	7639
+agent recover restore	6303743	NEC_BACKUP_RECOVERY	8839
+hubspot vs mindmatrix	8078534	SALES_ENABLEMENT	9391
+cabinet reface business opportunity	8371376	HANDYMAN_FRANCHISE	9461
+helpdesk remote access	728558	SOFTWARE_REMOTE_ACCESS	8015
+ad tracking services	1516363	MARKET_RESEARCH	420
+lead scoring salesforce	32081	MARKETING_FUNNEL_CONVERSION	6523
+high office chair	5711456	EQUIPMENT_OFFICE	8873
+introduction to storage area network	8567085	STORAGE_NETWORK_SAN_NAS	9771
+support tickets	753565	CUSTOMER_SERVICE_HELP_DESK	9824
+infusionsoft sirius decisions	6550565	MARKETING_CRM	9122
+corpor app	8399385	SOFTWARE_EVENT_MGT	9167
+optimizely lead gen	6605717	MARKETING_AUTOMATION	9191
+office chairs boston	5161032	EQUIPMENT_OFFICE	8873
+securid create user	6534521	SECURITY_AUTHENTICATION_AUTHORIZATION_IAM	8535
+activestate perl	8587824	DEV_PERL_TCL	9814
+how start non profit business	8624403	BANKING_SMALL_BUSINESS_LOANS	9839
+payment kia rio	8497392	AUTO_KIA	9609
+market roi metric	8381755	BUSINESS_APPS_BUSINESS_INTELLIGENCE	9469
+marketing event exhibition	8462356	CVENT_EVENT_DESIGN_CONTRUCTION	9555
+supply chain provenance	8469083	BUSINESS_STRATEGY_SUPPLY_CHAIN_MGMT	9561
+honda minivan blackbook	8424266	AUTO_HONDA	9508
+glycol split hvac	8513290	FACILITY_MANAGEMENT_HVAC	9621
+jasper m2m platform	8518895	DEV_IOT	9094
+economy auto credit score	8421691	AUTO_GENERIC	9506
+best online project management tool	1872525	SOFTWARE_PROJECT_MANAGEMENT	7829
+event manag compan	8400020	SOFTWARE_EVENT_MGT	9167
+tax employ lpo	8311199	HUMAN_RESOURCES_GHRO	9416
+harper dolly	8619570	EQUIPMENT_HEAVY	9838
+bridal store point of sale system	6511013	SOFTWARE_POINT_OF_SALE_SYSTEM	8907
+employee violence hipaa	8523182	WORKPLACE_TRAINING_COMPLIANCE	1416
+dental administration software	2512275	HEALTHCARE_IT	8670
+vmware storag solut	8419463	COMMVAULT_SERVER_VIRTUALIZATION_BACKUP	9504
+medios ehr	4160704	HEALTHCARE_IT	8670
+tippers trucks	8561178	SHIPPING_CUSTOMS	9756
+how to build relationships with customers	1543678	B2B_MARKETING	8479
+sugar crm	8495844	LSC_CORE	9681
+microsoft datawarehouse	8592572	BIG_DATA_ETL_DATA_MGT	9822
+emr hipaa	6055118	UPMC_HEALTHCARE_GENERAL	9400
+business health care	36706	HEALTHCARE_GROUP_HEALTHCARE	5455
+internet bank fintech	8434685	FINANCE_BANKING_TECHNOLOGY	9510
+cms market plan	6771345	BUSINESS_APPS_CONTENT_MANAGEMENT	9486
+business process manag change	8568506	SOFTWARE_ENTERPRISE_CONTENT_MGT_ECM	9774
+sap ariba strategic sourcing	8386290	BUSINESS_APPS_ERP	9494
+midrange storage	8609582	STORAGE	9832
+megaupload proxy	7973833	SECURITY_ADVANCED_SECURE_GATEWAY	8529
+linux news	6503723	DEV_OS_LINUX	6409
+aca insur mandat	7004143	UPMC_EBENEFITS_AFFORDABLE_CARE_ACT	8295
+start up invest angel invest	8524941	FINANCE_BANKING_VENTURE_CAPITAL	9692
+home accounting software free	1030248	SOFTWARE_ERP_ACCOUNTING	7307
+software defined wan manag	8518418	NETWORKING_SOFTWARE_DEFINED_SDN	9389
+client side encrypt cloud storage	8568023	STORAGE_CLOUD	9772
+what mean internet thing	8519999	DEV_IOT	9094
+integrat secur system	8561130	BYOD_LATE	9755
+uninstall net nanny	8633454	SECURITY_WEB_FILTERING	9842
+massey ferguson 1080	8620550	EQUIPMENT_HEAVY	9838
+lean manufacturing books	7558797	SOFTWARE_ERP_MANUFACTURING	7305
+tutorial pivot tables	4241873	SIEM	3969
+aspera enterprise server	6263473	AWS_AZURE	9762
+firewall freeware	8613072	SECURITY_AWARENESS	9835
+healthcare reform famili	6962057	UPMC_EBENEFITS_BENEFITS_ADMIN	8995
+mitsubishi heatset	8480893	BUSINESS_SERVICES_COMMERCIAL_PRINT	9587
+risk management basics	5741775	SOFTWARE_ERP_RISK_COMPLIANCE	9282
+guide 1 net	8635674	SECURITY_WEB_FILTERING	9842
+smarthome keypad	8498850	SECURITY_SMART_HOME	9610
+work place radians	8374825	WORKPLACE_SAFETY	8885
+optimiz web manag	7232637	ECOMMERCE_OPTIMIZATION	9324
+accident death insurance aarp	8463801	INSURANCE_LIFE	4131
+rfid based library management	5746185	RETAIL_RFID	6009
+virtual server hardware	28408	CLOUD_VIRTUALIZATION_VMWARE	9833
+convenience store wireless pos	8473905	BUSINESS_APPS_POINT_OF_SALE	9578
+software health benefit	8528007	HUMAN_RESOURCES_BENEFITS	9373
+hr package	1069526	HUMAN_RESOURCES_HCM_HRIS	9050
+remote meter reading flow meter	8644146	SOFTWARE_SMART_GRIDS_UTILITIES_MANUFACTURERS	9004
+dedic host offer	6852049	SERVERS_MANAGED_HOSTING	7509
+student registr system	8397387	SOFTWARE_EVENT_MGT	9167
+it consultant company	1907	EOB_LOB_SECURITY	307
+online recruiting	8470736	LOCALBLOX_HUMAN_RESOURCES	9674
+corporate retreat resort duck hunting	8445945	TRAVEL_CORPORATE_RETREATS	9459
+outside sales field sales	8394450	SALES_ENABLEMENT_TRAINING	9493
+medic trial analyt	8381782	BUSINESS_APPS_BUSINESS_INTELLIGENCE	9469
+quote online insurance disability	8463556	INSURANCE_LIFE	4131
+content test2	7018495	B2B_MARKETING_MID	6509
+carbon management	8048865	LOCALBLOX_DATA_CENTER_MGT	9665
+dental and eye insurance	1644720	HEALTHCARE_GROUP_DENTAL_VISION	7131
+sql server command line client	295312	DATA_BACKUP_RECOVERY_MID	9834
+content manag system	8376586	BUSINESS_APPS_CONTENT_MANAGEMENT	9486
+veeva vault	8568404	SOFTWARE_ENTERPRISE_CONTENT_MGT_ECM	9774
+bank card tranaction epayment	8465954	FINANCE_BANKING_MERCHANT_SERVICE	9557
+virtual server secur	6884123	CLOUD_VIRTUALIZATION_VMWARE	9833
+online checkout journey feedback	8444297	BUSINESS_STRATEGY_CUSTOMER_EXPERIENCE_VOICE	9530
+server data migrat	6865989	NEC_CLOUD	8788
+bpo tax employ	8310064	HUMAN_RESOURCES_GHRO	9416
+mcafe email secur	8436405	SECURITY_EMAIL_GATEWAY	9521
+john deere yard tractor	8631958	EQUIPMENT_FORESTRY	9841
+voip reseller business	8598794	PHONE_VOIP	9826
+telematics fleet track	8519186	FLEET_MANAGEMENT	1833
+collapsible bulk container	8566016	SHIPPING_PALLETS	9770
+cruising new orleans	8502983	TRAVEL_CRUISES	8989
+account receiv debt	8435136	FINANCE_BANKING_SMALL_BUSINESS_FACTORING	9518
+cloudera accumulo	6544353	BIG_DATA_GENERIC	9181
+predictive analytics training online	6209863	TBW_COMPETITIVE_ALL	9063
+control point of sale from pc	1581217	SOFTWARE_POINT_OF_SALE_SYSTEM	8907
+ssl vpn service	251229	SECURITY_SSL	7163
+fleet track vehicle maintenance	8549150	FLEET_MANAGEMENT	1833
+recruit help	7173771	HUMAN_RESOURCES_RECRUIT_ACQUIRE	9014
+collaborat enterprise	8303564	BUSINESS_APPS_CHAT_COLLABORATION	9471
+marketing advice for small business	735654	MARKETING_LOCAL	7165
+lower health care cost	428023	UPMC_COMMERCIAL_HEALTHCARE	8379
+brietling watch band	8360315	WATCHES_LUXURY	8929
+search engine term	7910765	SEARCH_SEO_OPTIMIZATION	8179
+international merchant account	959013	SOFTWARE_ERP_ACCOUNTING	7307
+voip and sip	8598039	PHONE_VOIP	9826
+hipchat review	7231619	SOFTWARE_CHAT_COLLABORATION	9775
+plug and play monitor	449002	SOFTWARE_UNIFIED_MONITORING	7517
+gartner hybrid cloud	6575447	NEC_CLOUD	8788
+anonym prox	7914513	SECURITY_NETWORK	8191
+luxury auto black book	8421521	AUTO_GENERIC	9506
+rainin pipettes	5468130	RETAIL_RFID	6009
+msrp chev impala	8542488	AUTO_CHEVY	9709
+amputation sugar level	8486913	HEALTHCARE_CONDITION_DIABETES	9592
+san server softwar	6865089	SERVERS_GENERIC	8713
+health emr ehr emr	8551369	HEALTHCARE_EHR_EMR	9442
+data analys decis make	8476869	BUSINESS_APPS_BUSINESS_INTELLIGENCE	9469
+internet marketing lead nurturing	8532346	MARKETING_LEAD_GEN	9377
+stream application	5460719	VIDEO_STREAMING_CONSUMER	7853
+enterprise project management tools	1594686	CORPORATE_PERFORMANCE_MANGEMENT	3293
+tfs project management	5961780	SOFTWARE_PROJECT_MANAGEMENT	7829
+gantt chart onlin	8383076	BUSINESS_APPS_DASHBOARDS_VISUALIZATION	9470
+veeam backup esxi	270868	CV_BACKUP_RECOVERY_LATE	8934
+dismemberment insurance life insurance	8465038	INSURANCE_LIFE	4131
+host mongo	6780785	BIG_DATA_MONGODB	9447
+artificial comput intellig	8561848	DEV_MACHINE_LEARNING_AI	9758
+option accounting software	1033581	SOFTWARE_ERP_ACCOUNTING	7307
+analysis of financial data	1833753	CORPORATE_PERFORMANCE_MANGEMENT	3293
+aarp dismemberment insurance	8464209	INSURANCE_LIFE	4131
+quote rv insurance	8536679	INSURANCE_CAR	9706
+allis chalmers asphalt paver	8450461	HEAVY_EQUIPMENT_CONSTRUCTION_MINING_FORESTRY	9540
+data center tampa	1898330	DATA_CENTER	9126
+online advertising report	8572808	ADTECH_AD_OPS_TRAFFICKING	9780
+ear plug workplace	8374824	WORKPLACE_SAFETY	8885
+wordpress commercial plugins	8571818	DEV_WORDPRESS	9779
+syncsort infosphere	6549537	BIG_DATA_GENERIC	9181
+secur peopl	7921441	SECURITY_NETWORK	8191
+cybermedicine treat in place	8642471	HEALTHCARE_TELEMEDICINE_TELEHEALTH	9846
+legacy services	4671563	DATA_CENTER	9126
+virtual server platform	522593	SERVERS_MANAGED_HOSTING	7509
+linux wardriv	6827989	DEV_OS_LINUX	6409
+software business solutions	751714	SOFTWARE_SALES_ENABLEMENT	9395
+schedule backup disaster	8444804	DATA_MGMT_BACKUP_RECOVERY	9531
+ibm backup	23599	NEC_BACKUP_RECOVERY	8839
+network solutions affiliate	7351989	ECOMMERCE_AFFILIATE_MKTG	6875
+seo image optimization	1475165	CONTENT_DELIVERY_NETWORK_CDN	9027
+google analytics heatmap	1884902	MARKETING_WEB_ANALYTICS	9319
+cremation insurance death accident insurance	8464217	INSURANCE_LIFE	4131
+distribut channel software	7020245	SALES_PARTNER_CHANNEL	6577
+hrms saa	6557709	HUMAN_RESOURCES_SYSTEMS_SOFTWARE	9458
+sales lead generat	6390839	CALL_CENTER	9326
+project management app iphone	744579	SOFTWARE_PROJECT_MANAGEMENT	7829
+local area network troubleshoot	8467416	NETWORKING_MONITORING	9184
+nurse hotline cybermedicine	8642456	HEALTHCARE_TELEMEDICINE_TELEHEALTH	9846
+mobil broadband servic	6515639	NETWORKING_ROUTERS	9185
+sd lan network	8518766	NETWORKING_SOFTWARE_DEFINED_SDN	9389
+employe satisfact questionnair format	8584363	FOCUSVISION_SURVEY_VOICE_CUSTOMER	9794
+usability online	4113153	DESIGN_UI_UX	9805
+worksit well program	7577135	UPMC_WORKPARTNERS_WELLNESS_HEALTH_MANAGEMENT	7457
+infra red video	7008251	VIDEO_STREAMING	9041
+credit card fintech	8434250	FINANCE_BANKING_TECHNOLOGY	9510
+card id printer	5744388	RETAIL_RFID	6009
+best virtualized network function	8522921	NETWORKING_NFV	9404
+customer correspondence	719513	CUSTOMER_SERVICE	5495
+pain tooth abscess	7456057	HEALTHCARE_PAIN	7639
+affordable health insurance nc	42428	INSURANCE_HEALTH	391
+social media marketing for small businesses	763611	MARKETING_LOCAL	7165
+aws saas	6395087	AWS	9791
+trust wealth manage	8466912	WEALTH_MANAGEMENT_RIAS	1766
+ecoupon epos	8473367	BUSINESS_APPS_POINT_OF_SALE	9578
+poor credit auto financ	8502300	FINANCE_BANKING_AUTO_LOANS	9613
+train employ international	8311333	HUMAN_RESOURCES_GHRO	9416
+sweden wikitravel	8511880	TRAVEL_EUROPE	9402
+cip compliance click fraud	8392340	SECURITY_FRAUD_DETECTION	4573
+marketing automation platforms	38505	MARKETING_ANALYTICS	1558
+application develop	313035	MOBILE_MDM	9827
+wireless game develop	6812031	DEV_GAMING_SERVERS	6379
+buyer journey define predictive analytics	6599483	MARKETING_AUTOMATION	9191
+wireless linux	6506129	DEV_OS_LINUX	6409
+cloud data migrat	6842957	NEC_CLOUD	8788
+dairy equipment agricultur equipment	8449957	HEAVY_EQUIPMENT_AGRICULTURAL_LANDSCAPE	9539
+metrics service	6335775	SOFTWARE_FIELD_SERVICES	9057
+ehr consultant	476510	HEALTHCARE_IT	8670
+security private cloud	8388040	SECURITY_CLOUD	9492
+cuba excursion	8328425	ST_MAARTEN_CRUISE_VACATION	9428
+sale letter templat	8574387	DEV_LANDING_PAGE	9781
+mobile applications free	8570325	MOBILE_EMM	9777
+nissan titan trade value	8537880	AUTO_NISSAN	9708
+resume database software	1828671	HUMAN_RESOURCES_RECRUIT_ACQUIRE	9014
+market metric dashboard	8381752	BUSINESS_APPS_BUSINESS_INTELLIGENCE	9469
+industrial panel mount monitor	8603111	LAPTOP_COMPUTER_INDUSTRIAL_MEDICAL	9829
+recruit interview	7173805	HUMAN_RESOURCES_RECRUIT_ACQUIRE	9014
+android develop agenc	6816229	DEV_MOBILE	9407
+omnichannel experience user journey	8444276	BUSINESS_STRATEGY_CUSTOMER_EXPERIENCE_VOICE	9530
+microfinanc fund	8624201	BANKING_SMALL_BUSINESS_LOANS	9839
+architect teleconferenc	8312374	CORPORATE_OFFICE_ART	9423
+mobile device medical application developers	7962163	HEALTHCARE_IT	8670
+crowd sourc test black box test	8351701	DEV_SOFTWARE_TESTING	6413
+management accounting financ accounting	8435730	BUSINESS_APPS_ACCOUNTING	9520
+high roi advertis	7935449	MARKETING_ATTRIBUTION_PERFORMANCE	9215
+event planning marketing plan	724409	MARKETING_STRATEGY_PLANNING	9119
+lincoln welders mig	8620320	EQUIPMENT_HEAVY	9838
+windows instant messag server	8384159	BUSINESS_APPS_CHAT_COLLABORATION	9471
+romper luteal phase defect	8526710	HEALTHCARE_CONDITION_INFERTILITY	9694
+bi data model	8626880	BI_BUSINESS_INTELLIGENCE	9840
+3d furniture	4087274	DEV_APPLICATIONS_GAMES	7293
+teradata user group	1679998	MARKETING_ANALYTICS	1558
+online virus remov tool	8431470	SECURITY_ANTI_VIRUS	4575
+yodas help desk	758376	CUSTOMER_SERVICE_GENERIC	7625
+todaysparent conceive	8526564	HEALTHCARE_CONDITION_INFERTILITY	9694
+esignature paytech	8433563	FINANCE_BANKING_TECHNOLOGY	9510
+servicenow amazon aws	6577843	NEC_CLOUD	8788
+secur service agreement	7903165	SECURITY_NETWORK_PENETRATION	9188
+golf help swing	1085185	SPORTS_GOLF_PERFORMANCE_AIDS	7661
+online training employee compliance	8508432	SOFTWARE_LMS_ELEARNING	9785
+wine distributor champagne	8378110	TMP_WINE_SPIRITS_EXP063018	9468
+linux red hat vpn	8480152	REDHAT_BRANDED_PRODUCTS	9586
+warranty cadillac economy car	8547540	AUTO_CADILLAC	9712
+bot identififcation computerweekly	8528491	SECURITY_BOT_DETECTION	9696
+mobile field service software	738523	BYOD_LATE	9755
+mother day women watch	8361322	WATCHES_LUXURY	8929
+employ tax offshor employ	8311170	HUMAN_RESOURCES_GHRO	9416
+nissan altima blue book	8537053	AUTO_NISSAN	9708
+web app ruby on rails	8388217	DEV_WEB	6477
+point of sale qsr	7989431	SOFTWARE_POINT_OF_SALE_SYSTEM	8907
+ariba contract service	8468682	BUSINESS_APPS_PROCUREMENT	9560
+circular economy carbon footprint business	8455460	BUSINESS_STRATEGY_SUSTAINABILITY	9541
+direct sales online	1589209	INSURANCE_RISK_CAPTIVE	8851
+graphics pci	328287	SECURITY_NETWORK_PENETRATION	9188
+recruit chartered financ plan	7173625	HUMAN_RESOURCES_RECRUIT_ACQUIRE	9014
+medic confer manag softwar databa	8400586	SOFTWARE_EVENT_MGT	9167
+employee safety insider trading	8523081	WORKPLACE_TRAINING_COMPLIANCE	1416
+patient education hypertension	7632891	UPMC_HEALTHCARE_GENERAL	9400
+gui design patterns	7664309	INNOVATION_CORPORATE	9393
+help desk level	8556793	CUSTOMER_SERVICE	5495
+ivr call center	732346	CALL_CENTER	9326
+business business startup unsecured loan	8492318	FINANCE_BANKING_SMALL_BUSINESS_LOANS	9600
+cms electronic prescribing	1879244	CONTENT_MANAGEMENT_CMS	9819
+tv advertising companies	940013	VIDEO_PRODUCTION	7137
+best streaming software	5512771	VIDEO_STREAMING	9041
+snack container system	8478495	BUSINESS_SERVICES_PACKAGING_FOOD	9581
+concierge medic servic	8501471	UPMC_HEALTHCARE_CORPORATE	9612
+mobile applications benefits	6255383	DEV_MOBILE	9407
+disk recover autobackup	6305665	NEC_BACKUP_RECOVERY	8839
+minority owned business sba lend	8492913	FINANCE_BANKING_SMALL_BUSINESS_LOANS	9600
+inbound marketing	50837	MARKETING_LEAD_GEN	9377
+cisco optic	6583947	NETWORKING_ROUTERS	9185
+market distrupt factor	8483206	BUSINESS_STRATEGY_INNOVATION_TRANSFORMATION	9589
+netscale 2factor	6528189	SECURITY_AUTHENTICATION_AUTHORIZATION_IAM	8535
+construction site arc flash	8374245	WORKPLACE_SAFETY	8885
+mamsi health insurance	48627	INSURANCE_HEALTH	391
+java app server	418897	DEV_CLOUD_APP_DEVELOPMENT	7541
+google cloud solution	8567706	STORAGE_CLOUD	9772
+discount dental plans in	2540519	HEALTHCARE_GROUP_DENTAL_VISION	7131
+iis performance monitoring	1860585	NETWORKING_APPLICATION_DELIVERY_CONTROL_LOAD_BALANCE	9776
+rope shovel allis chalmers	8453204	HEAVY_EQUIPMENT_CONSTRUCTION_MINING_FORESTRY	9540
+hp print server internal	7358771	SERVERS_GENERIC	8713
+private health requir coverag	6963293	UPMC_EBENEFITS_BENEFITS_ADMIN	8995
+best laptop for money	8594687	LAPTOP_TABLET	9823
+web based proposal software	756698	SALES_CPQ	6883
+incident itil	8575326	INFRASTRUCTURE_ITSM	9783
+distribution retire	8489148	WEALTH_MANAGEMENT_RETIREMENT_401K	9594
+veeam backup restore	8445038	DATA_MGMT_BACKUP_RECOVERY	9531
+toy chainsaws	8632719	EQUIPMENT_FORESTRY	9841
+internet safety software	8635321	SECURITY_WEB_FILTERING	9842
+capacity planning consumption management	8472845	BUSINESS_APPS_DEMAND_MANAGEMENT	9577
+point of sale solution	449439	NEC_RETAIL	8813
+disk 2 disk back ups	52683	DATA_BACKUP_RECOVERY_MID	9834
+cubicle office design	8312664	CORPORATE_OFFICE_ART	9423
+medical schedule software	737385	SOFTWARE_FIELD_SERVICES	9057
+conceive risk factor	8526023	HEALTHCARE_CONDITION_INFERTILITY	9694
+solution cryovac vegetable	8478598	BUSINESS_SERVICES_PACKAGING_FOOD	9581
+buildings online	8559655	BUILDING_FACILITY_ENERGY_MGT	9751
+amazon aws solution	6781271	AWS	9791
+open source virtual desktop software	15604	CLOUD_VIRTUALIZATION_DESKTOP_VDI	9767
+best product design websit	8483772	BUSINESS_STRATEGY_INNOVATION_PRODUCT_DESIGN	9590
+nissan maxima nissan minivan	8537280	AUTO_NISSAN	9708
+intent data marketing analy	6603227	MARKETING_AUTOMATION	9191
+content music video	4842839	CONTENT_DELIVERY_NETWORK_CDN	9027
+stream new music	7746653	VIDEO_STREAMING_CONSUMER	7853
+lucidwork business intelligence	6547753	BIG_DATA_DATA_MANAGEMENT_ANALYSIS	9489
+quantitative research	1545350	B2B_MARKETING	8479
+business software sales	714219	SOFTWARE_SALES_ENABLEMENT	9395
+chief market officer multimedia content	6771239	BUSINESS_APPS_CONTENT_MANAGEMENT	9486
+top call center	755027	CALL_CENTER_CLOUD_LATE_STAGE	8729
+entrepreneur line of credit	8492444	FINANCE_BANKING_SMALL_BUSINESS_LOANS	9600
+vulnerability management rsa netwitness	8642980	SECURITY_SIEM	9847
+sales lead track software	7022379	MARKETING_FUNNEL_CONVERSION	6523
+teradata job	8578642	BIG_DATA_ANALYTICS_COMPETITORS	9787
+pipeline trencher bigrentz	8453005	HEAVY_EQUIPMENT_CONSTRUCTION_MINING_FORESTRY	9540
+residential buy	8442574	REAL_ESTATE_RESIDENTIAL	9528
+commercial fleet track telematics	8548981	FLEET_MANAGEMENT	1833
+jewelry mother day	8360490	WATCHES_LUXURY	8929
+principles of supply chain management	19225	SOFTWARE_ERP_MANUFACTURING	7305
+busi afford health law	6960043	UPMC_EBENEFITS_AFFORDABLE_CARE_ACT	8295
+emc co locate	8448007	NEC_CLOUD	8788
+amino acids powerbar	8485969	HEALTHCARE_DIETARY_SUPPLEMENTS	9591
+comparison kia sorento	8497408	AUTO_KIA	9609
+mail spa	8635010	SECURITY_WEB_FILTERING	9842
+manage social media content	6775237	BUSINESS_APPS_CONTENT_MANAGEMENT	9486
+price of stihl chainsaw	8630656	EQUIPMENT_FORESTRY	9841
+backup nas cloud	8567799	STORAGE_CLOUD	9772
+hvac training software	2763742	SOFTWARE_FIELD_SERVICES	9057
+cognos dashboard	8577685	BI_DASHBOARDS_VISUALIZATION	9786
+canto cumulus	1729123	SOFTWARE_DIGITAL_ASSETT_MG_WORKFLOW_LABELING	8339
+enterprise secur manag	8560155	BYOD_LATE	9755
+epace estimat software	8304107	SALES_CPQ	6883
+social network marketing	751500	SOCIAL_MEDIA_MANAGEMENT	6625
+financing toyota luxury car	8426556	AUTO_TOYOTA	9509
+itil v3 service lifecycle diagram	8574794	INFRASTRUCTURE_ITSM	9783
+application data migrat	7587023	CLOUD_MIGRATION_INTEGRATION	7579
+windows backup agent	6107911	CLOUD_COMPUTING_AZURE	9472
+small business marketing package	513682	MARKETING_LOCAL	7165
+virtual privat datacent	6883931	SERVERS_MANAGED_HOSTING	7509
+ssl session cache	1869532	SECURITY_SSL	7163
+sopho email gateway	8436564	SECURITY_EMAIL_GATEWAY	9521
+motivation sales	1544688	B2B_MARKETING	8479
+netmeeting remote desktop	262947	SOFTWARE_REMOTE_ACCESS	8015
+inheritance search	4829736	SIEM	3969
+carnival inspiration budget	8369493	PLAYA_MIA_CRUISE_TOP	9452
+virtual desktop rental	15799	CLOUD_COMPUTING_VIRTUALIZATION_VDI	9476
+customer service for millennials	6396431	CUSTOMER_SERVICE_GENERIC	7625
+free online virus remov mcafee	8431596	SECURITY_ANTI_VIRUS	4575
+accident death insurance family life	8463895	INSURANCE_LIFE	4131
+free russian movie	7744519	VIDEO_STREAMING_CONSUMER	7853
+virtual machine free	8611472	CLOUD_VIRTUALIZATION_VMWARE	9833
+internet marketing questions	731672	MARKETING_ANALYTICS	1558
+tradeshow display san diego	8461568	CVENT_EVENTS_TRADESHOWS	9553
+deloite strategy planning	8482585	BUSINESS_STRATEGY_INNOVATION_TRANSFORMATION	9589
+offsit backup	6306075	NEC_BACKUP_RECOVERY	8839
+antivirus software best	253382	SECURITY_ANTI_VIRUS	4575
+datacenter backup	23171	CV_BACKUP_RECOVERY_EARLY	5085
+volvo construction road grader	8454156	HEAVY_EQUIPMENT_CONSTRUCTION_MINING_FORESTRY	9540
+emerson motion control	8009321	SOFTWARE_SMART_GRIDS_UTILITIES_MANUFACTURERS	9004
+top facial recogni	7973587	SECURITY_BIO_METRICS	9766
+it helpdesk tools	732206	CUSTOMER_SERVICE_HELP_DESK	9824
+toll free number usaa	8012780	INSURANCE_MILITARY	8827
+computer network business	157447	SIEM	3969
+belgium tour	8510168	TRAVEL_EUROPE	9402
+building cleaning business	8559780	BUILDING_FACILITY_ENERGY_MGT	9751
+retail business accounting	811139	SOFTWARE_ERP_ACCOUNTING	7307
+development hmi	5079854	SECURITY_SCADA_HMI	8796
+pur filter system	8634318	SECURITY_WEB_FILTERING	9842
+virtualiz application host	6578481	CLOUD_COMPANIES	9836
+punch equipment	8621255	EQUIPMENT_HEAVY	9838
+student tracking system	1089900	RETAIL_RFID	6009
+insurance customer experience	730938	CUSTOMER_EXPERIENCE_CX	9815
+plastic pallets for sale	8566538	SHIPPING_PALLETS	9770
+video video content	6777817	BUSINESS_APPS_CONTENT_MANAGEMENT	9486
+mobile ecommerce software	959380	ECOMMERCE_CART_ABANDONMENT	6773
+cloud infrastructure	172	CLOUD_IAAS	9821
+apache linux directory	8586315	AWS_NOSQL	9808
+encrypted emails	221013	SECURITY_SYMANTEC	1312
+server product develop	8485352	BUSINESS_STRATEGY_INNOVATION_PRODUCT_DESIGN	9590
+pentaho apache hive	6548813	BIG_DATA_GENERIC	9181
+emc navisphere	293566	SIEM	3969
+crystal reports application server	1859992	BIG_DATA_ANALYTICS_COMPETITORS	9787
+social engin phish	8306822	SECURITY_ANTI_PHISHING	9397
+uninstall app	1480021	SIEM	3969
+sage crm	746668	BUSINESS_APPS_ERP	9494
+profit home busi idea	8355676	SMALL_BUSINESS_STARTUP	9444
+gdpr pardot	8454467	MARKETING_EMAIL	9123
+vss software	295730	CV_VIRTUALIZATION_CLOUD_MID	7613
+fingerprint voice	7973293	NECAM_ARS_CRITINF_ISP	9384
+fiber optic cable	39727	NETWORKING_ROUTERS	9185
+microsoft exchange server not available	2784919	CV_BACKUP_RECOVERY_MID	5089
+big data visual tool	6790537	BIG_DATA_REAL_TIME	9182
+marketing campaign metric	6211157	BI_BUSINESS_INTELLIGENCE	9840
+chev camaro preowned chevrolet	8539905	AUTO_CHEVY	9709
+snow cone machines for sale	7261971	EQUIPMENT_FOOD_TRUCKS	6813
+firewall router	259151	NETWORKING_ROUTERS	9185
+consumer satisfaction customer focus group	8494149	MARKETING_VIRTUAL_FOCUS_GROUPS	9601
+regular expression extractor	8281128	Lucidworks_KWs_2018_02_05	9355
+kpi performance indicator example	8626765	BI_BUSINESS_INTELLIGENCE	9840
+grant starting business	8624600	BANKING_SMALL_BUSINESS_LOANS	9839
+software ag	8584778	MARKETING_APP_INFRASTRUCTURE_COMPANIES	9795
+small business	50897	HEALTHCARE_IT_EXCEPTIONS	9483
+bad credit business financ	8626112	BANKING_SMALL_BUSINESS_LOANS	9839
+measuring roi marketing	737191	MARKET_RESEARCH	420
+employ outsourc outsourc	8309992	HUMAN_RESOURCES_GHRO	9416
+employee stress program	8430929	HEALTHCARE_CORPORATE_WELLNESS	9314
+enterprise budgeting solution	2025726	CORPORATE_PERFORMANCE_MANGEMENT	3293
+bicc statist	8379626	BUSINESS_APPS_BUSINESS_INTELLIGENCE	9469
+property management customer service	7593327	CUSTOMER_SERVICE_GENERIC	7625
+web vulner scanner	7922939	SECURITY_NETWORK	8191
+2003 backup softwar	6308051	NEC_BACKUP_RECOVERY	8839
+sales rep compensation measur	8556265	SALES_PERFORMANCE_MGT	9372
+windows server monitor	525741	SERVERS_GENERIC	8713
+enhanced router	345645	NETWORKING_ROUTERS	9185
+informatica web service tutorial	7974535	CLOUD_COMPUTING_AWS	9473
+small tractor for sale	8621861	EQUIPMENT_HEAVY	9838
+forklift euclid	8451774	HEAVY_EQUIPMENT_CONSTRUCTION_MINING_FORESTRY	9540
+mobile device manag market share	8560003	MOBILE_MDM	9827
+emc service request	1902587	STORAGE_NETWORK_SAN_NAS_LATE_STAGE	9773
+slogan ideas	1545806	B2B_MARKETING	8479
+jd powers cadillac escalade	8547008	AUTO_CADILLAC	9712
+marketing for small businesses	736081	ADTECH_LOCAL	9830
+carrier rental systems	8559702	BUILDING_FACILITY_ENERGY_MGT	9751
+hosted web analytic	8628418	BI_BUSINESS_INTELLIGENCE	9840
+sage erp software	746695	SOFTWARE_ERP_GENERIC	9141
+fiber store	6324253	NETWORKING_ROUTERS	9185
+process control automation	8563482	SOFTWARE_ROBOTIC_PROCESS_AUTOMATION	9763
+microstrateg servic	8381852	BUSINESS_APPS_BUSINESS_INTELLIGENCE	9469
+virtual dialer cloud contact centre	8443681	BUSINESS_APPS_CLOUD_CALL_CENTER	9529
+game server rent	4412995	DEV_GAMING_SERVERS	6379
+chef io	8558190	DEVOPS_COMPETITORS	9737
+buyer journey tip	6599615	MARKETING_AUTOMATION	9191
+plan event marketing	8462368	CVENT_EVENT_DESIGN_CONTRUCTION	9555
+north korea	8386619	HEALTHCARE_INFORMATICS_EXCEPTIONS	9482
+bot behavioral detection websitemagazine	8528410	SECURITY_BOT_DETECTION	9696
+why event planner	8398499	SOFTWARE_EVENT_MGT	9167
+data center education	555535	DATA_CENTER	9126
+best local busi start	8354439	SMALL_BUSINESS_STARTUP	9444
+safety preschoolers	8634193	SECURITY_WEB_FILTERING	9842
+retail rfid technology	60505	RETAIL_RFID	6009
+quadrat regress data	8596350	BIG_DATA_REGRESSION_MODELING	9825
+blackic protect	7914991	SECURITY_NETWORK	8191
+netsuite gartner	5954542	SOFTWARE_ERP_GENERIC	9141
+marketing research agency	1544530	MARKET_RESEARCH	420
+data cube visualiz	6787741	BI_DASHBOARDS_VISUALIZATION	9786
+rear tire tractor	8621312	EQUIPMENT_HEAVY	9838
+app kony ipad	8386714	DEV_MOBILE_APP	9480
+sql client software	752696	DATA_BACKUP_RECOVERY_MID	9834
+ecommerce nurture lead	8531464	MARKETING_LEAD_GEN	9377
+complianc kpi	8380478	BUSINESS_APPS_BUSINESS_INTELLIGENCE	9469
+cellular point of sale	1889250	SOFTWARE_POINT_OF_SALE_SYSTEM	8907
+exam itil	8575282	INFRASTRUCTURE_ITSM	9783
+improving marketing effective	8422428	MARKETING_ATTRIBUTION_PERFORMANCE	9215
+vendor hr	50479	ZENEFITS_HUMAN_RESOURCES	9462
+software intrusion detection system	514264	SECURITY_AWARENESS	9835
+local business sites	8606217	ADTECH_LOCAL	9830
+adjustable life insurance death accident	8463397	INSURANCE_LIFE	4131
+servizio virtual phone	8429492	TELEPHONY_VOIP_IP	8455
+supply chain best practice	6285529	BUSINESS_STRATEGY_SUPPLY_CHAIN_MGMT	9561
+manag feedback patiet focus group	8494451	MARKETING_VIRTUAL_FOCUS_GROUPS	9601
+window server 64bit	6870761	SERVERS_GENERIC	8713
+retail transaction credit card reader	8474312	BUSINESS_APPS_POINT_OF_SALE	9578
+toyota highlander gas mileage	8427514	AUTO_TOYOTA	9509
+t online de	8386572	HEALTHCARE_IT_EXCEPTIONS	9483
+herbal iron	8486518	HEALTHCARE_DIETARY_SUPPLEMENTS	9591
+vmware train course	8611769	CLOUD_VIRTUALIZATION_VMWARE	9833
+cyber crime nigeria	8392406	SECURITY_FRAUD_DETECTION	4573
+cisco multilay	6583935	NETWORKING_ROUTERS	9185
+belgium things to do	8511354	TRAVEL_EUROPE	9402
+brand market video content	6770851	BUSINESS_APPS_CONTENT_MANAGEMENT	9486
+long term evolut technolog	6515335	NETWORKING_ROUTERS	9185
+infosys multisourc	8515371	BUSINESS_PROCESS_OUTSOURCING	9625
+master of financial analysis	4061844	CORPORATE_PERFORMANCE_MANGEMENT	3293
+expense it	6266845	SOFTWARE_TRAVEL_EXPENSE	9052
+telesales training	1993300	SALES_TRAINING	9754
+check accounting	7553577	SOFTWARE_ERP_ACCOUNTING	7307
+ftp sftp server	302754	SERVERS_GENERIC	8713
+ibm softlayer itil	6576521	NEC_CLOUD	8788
+divx windows media player	559046	VIDEO_STREAMING	9041
+scrubs stream	7746001	VIDEO_STREAMING_CONSUMER	7853
+from health care reform	2658167	UPMC_COMMERCIAL_HEALTHCARE	8379

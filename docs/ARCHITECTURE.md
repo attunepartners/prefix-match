@@ -174,13 +174,13 @@ Before patterns are inserted into the trie, they undergo a preprocessing pipelin
 │        │                                                         │
 │        ▼                                                         │
 │  ┌─────────────────┐                                            │
-│  │  Parse Line     │  "pro professional news\tnews|N001"        │
-│  │  (tab-split)    │  → pattern: "pro professional news"        │
-│  └────────┬────────┘    ref: "news|N001"                        │
+│  │  Parse Line     │  "pro professional linux\t2784028\t..."    │
+│  │  (tab-split)    │  → pattern: "pro professional linux"       │
+│  └────────┬────────┘    ref: "2784028\tSERVERS..."              │
 │           │                                                      │
 │           ▼                                                      │
 │  ┌─────────────────┐                                            │
-│  │  Tokenize       │  → ["pro", "professional", "news"]         │
+│  │  Tokenize       │  → ["pro", "professional", "linux"]        │
 │  │  (whitespace)   │                                            │
 │  └────────┬────────┘                                            │
 │           │                                                      │
@@ -192,7 +192,7 @@ Before patterns are inserted into the trie, they undergo a preprocessing pipelin
 │           │                                                      │
 │           ▼                                                      │
 │  ┌─────────────────┐                                            │
-│  │  Remove         │  → ["pro", "professional", "news"]         │
+│  │  Remove         │  → ["pro", "professional", "linux"]        │
 │  │  stopwords      │    (if -W enabled)                         │
 │  │  (optional)     │                                            │
 │  └────────┬────────┘                                            │
@@ -200,7 +200,7 @@ Before patterns are inserted into the trie, they undergo a preprocessing pipelin
 │           ▼                                                      │
 │  ┌─────────────────┐                                            │
 │  │  Prefix         │  "pro" is prefix of "professional"         │
-│  │  Shortening     │  → ["professional", "news"]                │
+│  │  Shortening     │  → ["professional", "linux"]               │
 │  └────────┬────────┘                                            │
 │           │                                                      │
 │           ▼                                                      │

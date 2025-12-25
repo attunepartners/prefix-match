@@ -72,51 +72,41 @@ Expected output shows available command-line options.
 
 ### Format Specification
 
-Pattern files are plain text with one pattern per line. Each line contains **tab-separated** fields:
+Pattern files are plain text with one pattern per line. Each line contains **four tab-separated fields**:
 
 ```
-pattern_words<TAB>reference_data
-```
-
-The reference data typically contains pipe-delimited metadata:
-
-```
-pattern_words<TAB>category|pattern_id|additional_info
+pattern_words<TAB>pattern_id<TAB>category<TAB>category_num
 ```
 
 | Field | Description | Constraints |
 |-------|-------------|-------------|
 | `pattern_words` | Space-separated prefix words to match | Case-insensitive, alphanumeric |
+| `pattern_id` | Unique numeric identifier for the pattern | Numeric |
 | `category` | Classification label for matched URLs | Alphanumeric, underscores |
-| `pattern_id` | Unique identifier for the pattern | Alphanumeric |
+| `category_num` | Category group number | Numeric |
 
 ### Example Pattern File
 
 ```
 # URL categorization patterns for RTB
 # Lines starting with # are ignored
-# Format: pattern_words<TAB>category|pattern_id
+# Format: pattern_words<TAB>pattern_id<TAB>category<TAB>category_num
 
-cnn com politics	news_politics|NP001
-nytimes com politics	news_politics|NP002
-washingtonpost com politics	news_politics|NP003
+linux mount command	2784028	SERVERS_MANAGED_HOSTING	7509
+travel expense	4821538	SOFTWARE_TRAVEL_EXPENSE	9052
+honda crv model year	8425111	AUTO_HONDA	9508
+ios in app ad	8358845	ADTECH_MOBILE_ADVERTISING	9440
 
-espn com	news_sports|NS001
-sports yahoo com	news_sports|NS002
-bleacherreport com	news_sports|NS003
+docker monitoring	1454481	DEV_APP_CONTAINERIZATION	7243
+vmware financ	8474775	VMWARE_BRANDED_PRODUCT	9579
+hypervisor snapshot replic	6313151	SERVERS_VIRTUALIZATION	9164
 
-bmw com	auto_luxury|AL001
-mercedes benz com	auto_luxury|AL002
-lexus com	auto_luxury|AL003
-audi com	auto_luxury|AL004
+startup invest fund	8524789	FINANCE_BANKING_VENTURE_CAPITAL	9692
+banking consumer banking	8432797	FINANCE_BANKING_TECHNOLOGY	9510
+free budget website	4076082	FINANCE_BUDGETING_FORECASTING	8954
 
-bloomberg com markets	finance_trading|FT001
-cnbc com quotes	finance_trading|FT002
-finance yahoo com	finance_trading|FT003
-
-amazon com dp	ecommerce_shopping|ES001
-ebay com itm	ecommerce_shopping|ES002
-walmart com ip	ecommerce_shopping|ES003
+system electronic medical record	8551064	HEALTHCARE_EHR_EMR	9442
+bottle wine wine bottle	8377135	TMP_WINE_SPIRITS_EXP063018	9468
 ```
 
 ### Special Pattern Characters
@@ -128,7 +118,7 @@ walmart com ip	ecommerce_shopping|ES003
 
 Example with must-have word:
 ```
-technology *software solutions	tech_software|TS001
+technology *software solutions	1234567	TECH_SOFTWARE	9000
 ```
 In LCSS mode, "software" must appear in the input for this pattern to match.
 
@@ -211,7 +201,7 @@ Use `-l` flag to see preprocessing decisions:
 
 Output shows before/after for modified patterns:
 ```
-Pattern_ref: 'news_politics|NP001' changed from: 'pro professional news' to 'professional news'
+Pattern_ref: '2784028	SERVERS_MANAGED_HOSTING	7509' changed from: 'pro professional linux' to 'professional linux'
 ```
 
 ---
@@ -395,10 +385,10 @@ LCSS matches are marked with `*` instead of `=` in the output:
 
 ```
 # Exact match output
-=	news_politics|NP001	cnn com politics	cnn.com/politics	https://cnn.com/politics/article
+=	2784028	SERVERS_MANAGED_HOSTING	linux mount command	linux.mount.command	https://example.com/linux/mount/command
 
 # LCSS match output
-*	tech|T001	software development tools	software...development...tools	input string here
+*	1454481	DEV_APP_CONTAINERIZATION	docker monitoring	docker...monitoring	input string here
 ```
 
 ### Choosing a Matching Mode
