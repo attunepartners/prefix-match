@@ -1,135 +1,136 @@
 # Sample URL categorization patterns for RTB
-# Format: category|pattern_id|pattern_text
+# Format: pattern_words<TAB>category|pattern_id
 #
-# Categories represent content verticals for ad targeting
-# Pattern IDs enable tracking and auditing of matches
-# Pattern text is the URL prefix to match (case-insensitive)
+# Pattern words are space-separated URL components (case-insensitive)
+# Category and pattern_id are pipe-separated reference data
+#
+# Note: Patterns must have at least 2 words after preprocessing
 
 # News - Politics
-news_politics|NP001|cnn.com/politics
-news_politics|NP002|nytimes.com/politics
-news_politics|NP003|washingtonpost.com/politics
-news_politics|NP004|foxnews.com/politics
-news_politics|NP005|politico.com
-news_politics|NP006|thehill.com
+cnn com politics	news_politics|NP001
+nytimes com politics	news_politics|NP002
+washingtonpost com politics	news_politics|NP003
+foxnews com politics	news_politics|NP004
+politico com	news_politics|NP005
+thehill com	news_politics|NP006
 
 # News - Sports
-news_sports|NS001|espn.com
-news_sports|NS002|sports.yahoo.com
-news_sports|NS003|bleacherreport.com
-news_sports|NS004|cbssports.com
-news_sports|NS005|nbcsports.com
-news_sports|NS006|si.com
+espn com	news_sports|NS001
+sports yahoo com	news_sports|NS002
+bleacherreport com	news_sports|NS003
+cbssports com	news_sports|NS004
+nbcsports com	news_sports|NS005
+si com	news_sports|NS006
 
 # News - Business/Finance
-news_finance|NF001|bloomberg.com
-news_finance|NF002|cnbc.com
-news_finance|NF003|wsj.com
-news_finance|NF004|ft.com
-news_finance|NF005|reuters.com/business
-news_finance|NF006|finance.yahoo.com
+bloomberg com	news_finance|NF001
+cnbc com	news_finance|NF002
+wsj com	news_finance|NF003
+ft com	news_finance|NF004
+reuters com business	news_finance|NF005
+finance yahoo com	news_finance|NF006
 
 # News - Technology
-news_tech|NT001|techcrunch.com
-news_tech|NT002|theverge.com
-news_tech|NT003|wired.com
-news_tech|NT004|arstechnica.com
-news_tech|NT005|cnet.com
-news_tech|NT006|engadget.com
+techcrunch com	news_tech|NT001
+theverge com	news_tech|NT002
+wired com	news_tech|NT003
+arstechnica com	news_tech|NT004
+cnet com	news_tech|NT005
+engadget com	news_tech|NT006
 
 # News - Entertainment
-news_entertainment|NE001|eonline.com
-news_entertainment|NE002|people.com
-news_entertainment|NE003|tmz.com
-news_entertainment|NE004|variety.com
-news_entertainment|NE005|hollywoodreporter.com
+eonline com	news_entertainment|NE001
+people com	news_entertainment|NE002
+tmz com	news_entertainment|NE003
+variety com	news_entertainment|NE004
+hollywoodreporter com	news_entertainment|NE005
 
 # Automotive - Luxury
-auto_luxury|AL001|bmw.com
-auto_luxury|AL002|mercedes-benz.com
-auto_luxury|AL003|lexus.com
-auto_luxury|AL004|audi.com
-auto_luxury|AL005|porsche.com
-auto_luxury|AL006|jaguar.com
-auto_luxury|AL007|landrover.com
-auto_luxury|AL008|tesla.com
+bmw com	auto_luxury|AL001
+mercedes benz com	auto_luxury|AL002
+lexus com	auto_luxury|AL003
+audi com	auto_luxury|AL004
+porsche com	auto_luxury|AL005
+jaguar com	auto_luxury|AL006
+landrover com	auto_luxury|AL007
+tesla com	auto_luxury|AL008
 
 # Automotive - Mass Market
-auto_mass|AM001|ford.com
-auto_mass|AM002|chevrolet.com
-auto_mass|AM003|toyota.com
-auto_mass|AM004|honda.com
-auto_mass|AM005|hyundai.com
-auto_mass|AM006|nissan.com
+ford com	auto_mass|AM001
+chevrolet com	auto_mass|AM002
+toyota com	auto_mass|AM003
+honda com	auto_mass|AM004
+hyundai com	auto_mass|AM005
+nissan com	auto_mass|AM006
 
 # Automotive - Reviews/Research
-auto_research|AR001|edmunds.com
-auto_research|AR002|kbb.com
-auto_research|AR003|autotrader.com
-auto_research|AR004|cars.com
-auto_research|AR005|caranddriver.com
-auto_research|AR006|motortrend.com
+edmunds com	auto_research|AR001
+kbb com	auto_research|AR002
+autotrader com	auto_research|AR003
+cars com	auto_research|AR004
+caranddriver com	auto_research|AR005
+motortrend com	auto_research|AR006
 
 # E-commerce - General
-ecom_general|EG001|amazon.com
-ecom_general|EG002|ebay.com
-ecom_general|EG003|walmart.com
-ecom_general|EG004|target.com
-ecom_general|EG005|costco.com
-ecom_general|EG006|bestbuy.com
+amazon com	ecom_general|EG001
+ebay com	ecom_general|EG002
+walmart com	ecom_general|EG003
+target com	ecom_general|EG004
+costco com	ecom_general|EG005
+bestbuy com	ecom_general|EG006
 
 # E-commerce - Fashion
-ecom_fashion|EF001|nordstrom.com
-ecom_fashion|EF002|macys.com
-ecom_fashion|EF003|zappos.com
-ecom_fashion|EF004|asos.com
-ecom_fashion|EF005|zara.com
-ecom_fashion|EF006|hm.com
+nordstrom com	ecom_fashion|EF001
+macys com	ecom_fashion|EF002
+zappos com	ecom_fashion|EF003
+asos com	ecom_fashion|EF004
+zara com	ecom_fashion|EF005
+hm com	ecom_fashion|EF006
 
 # Travel
-travel|TR001|expedia.com
-travel|TR002|booking.com
-travel|TR003|tripadvisor.com
-travel|TR004|kayak.com
-travel|TR005|hotels.com
-travel|TR006|airbnb.com
-travel|TR007|vrbo.com
+expedia com	travel|TR001
+booking com	travel|TR002
+tripadvisor com	travel|TR003
+kayak com	travel|TR004
+hotels com	travel|TR005
+airbnb com	travel|TR006
+vrbo com	travel|TR007
 
 # Real Estate
-real_estate|RE001|zillow.com
-real_estate|RE002|realtor.com
-real_estate|RE003|redfin.com
-real_estate|RE004|trulia.com
-real_estate|RE005|apartments.com
+zillow com	real_estate|RE001
+realtor com	real_estate|RE002
+redfin com	real_estate|RE003
+trulia com	real_estate|RE004
+apartments com	real_estate|RE005
 
 # Health & Wellness
-health|HE001|webmd.com
-health|HE002|mayoclinic.org
-health|HE003|healthline.com
-health|HE004|medicalnewstoday.com
-health|HE005|nih.gov
+webmd com	health|HE001
+mayoclinic org	health|HE002
+healthline com	health|HE003
+medicalnewstoday com	health|HE004
+nih gov	health|HE005
 
 # Education
-education|ED001|coursera.org
-education|ED002|udemy.com
-education|ED003|khanacademy.org
-education|ED004|edx.org
-education|ED005|linkedin.com/learning
+coursera org	education|ED001
+udemy com	education|ED002
+khanacademy org	education|ED003
+edx org	education|ED004
+linkedin com learning	education|ED005
 
 # Social Media
-social|SO001|facebook.com
-social|SO002|instagram.com
-social|SO003|twitter.com
-social|SO004|linkedin.com
-social|SO005|pinterest.com
-social|SO006|reddit.com
-social|SO007|tiktok.com
+facebook com	social|SO001
+instagram com	social|SO002
+twitter com	social|SO003
+linkedin com	social|SO004
+pinterest com	social|SO005
+reddit com	social|SO006
+tiktok com	social|SO007
 
 # Streaming/Entertainment
-streaming|ST001|netflix.com
-streaming|ST002|hulu.com
-streaming|ST003|disneyplus.com
-streaming|ST004|hbomax.com
-streaming|ST005|youtube.com
-streaming|ST006|twitch.tv
-streaming|ST007|spotify.com
+netflix com	streaming|ST001
+hulu com	streaming|ST002
+disneyplus com	streaming|ST003
+hbomax com	streaming|ST004
+youtube com	streaming|ST005
+twitch tv	streaming|ST006
+spotify com	streaming|ST007

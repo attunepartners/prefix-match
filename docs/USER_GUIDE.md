@@ -6,12 +6,15 @@ Complete documentation for installing, configuring, and operating PrefixMatch.
 
 1. [Installation](#installation)
 2. [Pattern Files](#pattern-files)
-3. [Command-Line Reference](#command-line-reference)
-4. [Batch Mode](#batch-mode)
-5. [Server Mode](#server-mode)
-6. [Client Integration](#client-integration)
-7. [Performance Tuning](#performance-tuning)
-8. [Troubleshooting](#troubleshooting)
+3. [Pattern Preprocessing](#pattern-preprocessing)
+4. [Stopwords](#stopwords)
+5. [Command-Line Reference](#command-line-reference)
+6. [Matching Modes](#matching-modes)
+7. [Batch Mode](#batch-mode)
+8. [Server Mode](#server-mode)
+9. [Client Integration](#client-integration)
+10. [Performance Tuning](#performance-tuning)
+11. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -69,45 +72,65 @@ Expected output shows available command-line options.
 
 ### Format Specification
 
-Pattern files are plain text with one pattern per line. Each line contains pipe-delimited fields:
+Pattern files are plain text with one pattern per line. Each line contains **tab-separated** fields:
 
 ```
-category|pattern_id|pattern_text
+pattern_words<TAB>reference_data
+```
+
+The reference data typically contains pipe-delimited metadata:
+
+```
+pattern_words<TAB>category|pattern_id|additional_info
 ```
 
 | Field | Description | Constraints |
 |-------|-------------|-------------|
+| `pattern_words` | Space-separated prefix words to match | Case-insensitive, alphanumeric |
 | `category` | Classification label for matched URLs | Alphanumeric, underscores |
 | `pattern_id` | Unique identifier for the pattern | Alphanumeric |
-| `pattern_text` | Prefix to match against input strings | Case-insensitive |
 
 ### Example Pattern File
 
 ```
 # URL categorization patterns for RTB
 # Lines starting with # are ignored
+# Format: pattern_words<TAB>category|pattern_id
 
-news_politics|NP001|cnn.com/politics
-news_politics|NP002|nytimes.com/politics
-news_politics|NP003|washingtonpost.com/politics
+cnn com politics	news_politics|NP001
+nytimes com politics	news_politics|NP002
+washingtonpost com politics	news_politics|NP003
 
-news_sports|NS001|espn.com
-news_sports|NS002|sports.yahoo.com
-news_sports|NS003|bleacherreport.com
+espn com	news_sports|NS001
+sports yahoo com	news_sports|NS002
+bleacherreport com	news_sports|NS003
 
-auto_luxury|AL001|bmw.com
-auto_luxury|AL002|mercedes-benz.com
-auto_luxury|AL003|lexus.com
-auto_luxury|AL004|audi.com
+bmw com	auto_luxury|AL001
+mercedes benz com	auto_luxury|AL002
+lexus com	auto_luxury|AL003
+audi com	auto_luxury|AL004
 
-finance_trading|FT001|bloomberg.com/markets
-finance_trading|FT002|cnbc.com/quotes
-finance_trading|FT003|finance.yahoo.com
+bloomberg com markets	finance_trading|FT001
+cnbc com quotes	finance_trading|FT002
+finance yahoo com	finance_trading|FT003
 
-ecommerce_shopping|ES001|amazon.com/dp
-ecommerce_shopping|ES002|ebay.com/itm
-ecommerce_shopping|ES003|walmart.com/ip
+amazon com dp	ecommerce_shopping|ES001
+ebay com itm	ecommerce_shopping|ES002
+walmart com ip	ecommerce_shopping|ES003
 ```
+
+### Special Pattern Characters
+
+| Character | Usage | Description |
+|-----------|-------|-------------|
+| `*` | Prefix on word | Marks word as "must-have" for LCSS matching |
+| `#` | Line start | Comment line (ignored) |
+
+Example with must-have word:
+```
+technology *software solutions	tech_software|TS001
+```
+In LCSS mode, "software" must appear in the input for this pattern to match.
 
 ### Pattern Matching Rules
 
@@ -124,6 +147,124 @@ Gzip-compressed pattern files are supported:
 ```bash
 gzip patterns.txt
 ./prefix_match -p patterns.txt.gz -i strings.txt
+```
+
+---
+
+## Pattern Preprocessing
+
+When patterns are loaded, they undergo automatic preprocessing to optimize matching quality and reduce false positives.
+
+### Preprocessing Rules
+
+#### 1. Single-Character Word Removal
+
+Words with only one character are automatically removed:
+
+```
+Input:  "a b company inc"
+Output: "company inc"
+```
+
+#### 2. Prefix Shortening (Adjacent Prefix Removal)
+
+When adjacent words share a prefix relationship, the shorter prefix is removed to prevent false matches:
+
+```
+Input:  "pro professional services"
+Output: "professional services"
+
+Input:  "auto automotive parts"
+Output: "automotive parts"
+```
+
+This prevents both "pro" and "professional" from matching within the same word "professional".
+
+#### 3. Minimum Word Count Requirement
+
+**Patterns must have at least 2 words after preprocessing.** Single-word patterns are rejected.
+
+| Input Pattern | After Preprocessing | Status |
+|---------------|---------------------|--------|
+| `"cnn com politics"` | `"cnn com politics"` | Accepted (3 words) |
+| `"espn com"` | `"espn com"` | Accepted (2 words) |
+| `"google"` | `"google"` | **Rejected** (1 word) |
+| `"a google"` | `"google"` | **Rejected** (1 word after cleanup) |
+| `"pro professional"` | `"professional"` | **Rejected** (1 word after prefix removal) |
+
+#### 4. Stopword Removal (Optional)
+
+When `-W` flag is enabled, common stopwords are removed from patterns:
+
+```
+Input:  "the best software in the world"
+Output: "best software world"
+```
+
+### Preprocessing Log
+
+Use `-l` flag to see preprocessing decisions:
+
+```bash
+./prefix_match -p patterns.txt -l 2>&1 | grep "Pattern_ref"
+```
+
+Output shows before/after for modified patterns:
+```
+Pattern_ref: 'news_politics|NP001' changed from: 'pro professional news' to 'professional news'
+```
+
+---
+
+## Stopwords
+
+Stopwords are common words that can be optionally removed from patterns during loading to improve match precision.
+
+### Stopword File Format
+
+Stopwords are stored in a **comma-separated** file (not newline-separated):
+
+```
+the,and,or,is,a,an,of,to,in,for,on,with,at,by,from,as,be,was,were,been
+```
+
+The file can be gzip-compressed.
+
+### Loading Stopwords
+
+```bash
+./prefix_match -p patterns.txt -w stopwords.txt -W -s strings.txt
+```
+
+| Flag | Purpose |
+|------|---------|
+| `-w <file>` | Load stopword file |
+| `-W` | Enable stopword removal from patterns |
+
+### Protected Words
+
+Some words are protected and kept even if they appear in the stopwords file:
+
+- `system`, `second`, `little`, `course`, `world`
+- `value`, `right`, `needs`, `information`, `invention`
+
+These words are commonly meaningful in technical/business contexts despite being stopwords in general text.
+
+### Example
+
+**Stopwords file (`stopwords.txt`):**
+```
+the,and,or,is,a,an,of,to,in,for,on,with
+```
+
+**Pattern file:**
+```
+the best software in the world	tech|T001
+```
+
+**With `-W` enabled:**
+```
+Pattern processed as: "best software world"
 ```
 
 ---
@@ -146,16 +287,31 @@ prefix_match -p <pattern_file> [options]
 
 | Option | Description |
 |--------|-------------|
-| `-i <file>` | Input file for batch mode |
+| `-s <file>` | Input string file for batch mode |
 | `-P <port>` | Start TCP server on port |
 | `-S <path>` | Start Unix socket server at path |
+
+### Pattern Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-w <file>` | Load stopwords from file | none |
+| `-W` | Remove stopwords from patterns | off |
+
+### Matching Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-m` | Extract and output matched substring | off |
+| `-L` | Enable LCSS (fuzzy) matching mode | off |
+| `-v` | Verify matches (debug mode) | off |
 
 ### Output Options
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `-o <file>` | Output file (batch mode) | stdout |
-| `-x` | Include matched substring in output | off |
+| `-l` | Log pattern processing details | off |
+| `-q` | Quiet mode (minimal output) | off |
 
 ### Performance Options
 
@@ -167,7 +323,13 @@ prefix_match -p <pattern_file> [options]
 
 ```bash
 # Batch processing with 8 threads
-./prefix_match -p patterns.txt -i urls.txt -o results.txt -t 8
+./prefix_match -p patterns.txt -s urls.txt -t 8
+
+# With stopwords and substring extraction
+./prefix_match -p patterns.txt -w stopwords.txt -W -s urls.txt -m
+
+# LCSS (fuzzy) matching mode
+./prefix_match -p patterns.txt -s urls.txt -L -m
 
 # TCP server on port 9999
 ./prefix_match -p patterns.txt -P 9999 -t 8
@@ -175,9 +337,80 @@ prefix_match -p <pattern_file> [options]
 # Unix socket server
 ./prefix_match -p patterns.txt -S /tmp/pm.sock -t 8
 
-# Compressed files
-./prefix_match -p patterns.txt.gz -i urls.txt.gz -o results.txt
+# Compressed files with logging
+./prefix_match -p patterns.txt.gz -s urls.txt.gz -l
 ```
+
+---
+
+## Matching Modes
+
+PrefixMatch supports two matching modes: **Exact Prefix Matching** (default) and **LCSS Matching** (fuzzy).
+
+### Exact Prefix Matching (Default)
+
+In exact mode, all pattern words must appear consecutively in the input string in the same order as the pattern.
+
+**Pattern:** `"bmw luxury cars"`
+
+| Input String | Match? | Reason |
+|--------------|--------|--------|
+| `"bmw luxury cars for sale"` | Yes | All words in order |
+| `"new bmw luxury cars 2024"` | Yes | All words in order |
+| `"bmw cars luxury"` | No | Wrong order |
+| `"bmw luxury sedans"` | No | "cars" missing |
+
+### LCSS Matching Mode (`-L`)
+
+LCSS (Longest Common Subsequence) mode enables fuzzy matching where pattern words can appear non-consecutively in the input, as long as they maintain their relative order.
+
+**Pattern:** `"software development tools"`
+
+| Input String | Exact Mode | LCSS Mode |
+|--------------|------------|-----------|
+| `"software development tools"` | Yes | Yes |
+| `"best software for development with tools"` | No | Yes |
+| `"software engineering and development tools"` | No | Yes |
+| `"tools for software development"` | No | No (wrong order) |
+
+#### LCSS Requirements
+
+1. **Minimum 3 unique words** must match from the pattern
+2. Words must appear in the **same relative order** as in the pattern
+3. **Must-have words** (marked with `*`) are required
+
+#### Must-Have Words
+
+Prefix a pattern word with `*` to make it required for LCSS matches:
+
+```
+enterprise *software solutions	tech|T001
+```
+
+This pattern only matches if "software" appears in the input, even if other words match.
+
+#### LCSS Output Format
+
+LCSS matches are marked with `*` instead of `=` in the output:
+
+```
+# Exact match output
+=	news_politics|NP001	cnn com politics	cnn.com/politics	https://cnn.com/politics/article
+
+# LCSS match output
+*	tech|T001	software development tools	software...development...tools	input string here
+```
+
+### Choosing a Matching Mode
+
+| Use Case | Recommended Mode |
+|----------|------------------|
+| URL categorization | Exact (default) |
+| Content classification | LCSS (`-L`) |
+| Brand safety filtering | Exact (default) |
+| Semantic topic detection | LCSS (`-L`) |
+| High-precision matching | Exact (default) |
+| High-recall matching | LCSS (`-L`) |
 
 ---
 

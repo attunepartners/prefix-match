@@ -174,6 +174,55 @@ Result:
 
 Critically, lookup time is independent of pattern count. A trie with 1,000 patterns has the same query latency as one with 1,000,000 patterns (assuming similar pattern lengths).
 
+#### 4.5 Pattern Preprocessing
+
+Raw patterns undergo preprocessing before trie insertion to optimize match quality and reduce false positives.
+
+**Preprocessing Pipeline:**
+
+1. **Single-character word removal**: Words like "a", "I" provide no discriminative value
+2. **Stopword removal** (optional): Common words ("the", "and", "of") can be filtered
+3. **Adjacent prefix shortening**: If word N is a prefix of word N+1, word N is removed
+4. **Minimum word count**: Patterns must have at least 2 words after preprocessing
+
+**Adjacent Prefix Shortening Example:**
+
+```
+Input:  "pro professional services"
+Output: "professional services"
+```
+
+Without this rule, "pro" would match as a prefix of "professional", causing the pattern to match any URL containing just "professional"—a false positive. The preprocessing ensures the pattern only matches when "professional" and "services" appear together.
+
+**Impact on Pattern Set:**
+
+| Stage | Patterns | Reduction |
+|-------|----------|-----------|
+| Raw file | 100,000 | — |
+| After single-char removal | 99,500 | -0.5% |
+| After prefix shortening | 97,000 | -2.5% |
+| After min-word check | 85,000 | -12.4% |
+
+The ~15% reduction improves both memory efficiency and match precision.
+
+#### 4.6 LCSS Matching Mode
+
+For content classification (as opposed to URL categorization), PrefixMatch supports Longest Common Subsequence (LCSS) matching. In LCSS mode:
+
+- Pattern words can appear non-consecutively in the input
+- Words must maintain relative order
+- Minimum 3 words must match
+- "Must-have" words can be specified with `*` prefix
+
+**Use Case Comparison:**
+
+| Mode | Use Case | Precision | Recall |
+|------|----------|-----------|--------|
+| Exact (default) | URL categorization | High | Medium |
+| LCSS | Content classification | Medium | High |
+
+For RTB URL categorization, exact mode is recommended due to the canonical nature of URLs and the need for deterministic billing.
+
 ---
 
 ### 5. Implementation Details

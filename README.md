@@ -40,7 +40,7 @@ Requirements:
 
 **Batch Mode** - Process a file of strings:
 ```bash
-./prefix_match -p patterns.txt -i strings.txt -o results.txt
+./prefix_match -p patterns.txt -s strings.txt -m
 ```
 
 **Server Mode** - TCP on port 9999:
@@ -55,18 +55,23 @@ Requirements:
 
 ### Pattern File Format
 
-One pattern per line with pipe-delimited fields:
+Tab-separated format with pattern words and reference data:
 ```
-category|pattern_id|pattern_text
+pattern_words<TAB>category|pattern_id
 ```
 
 Example:
 ```
-news_politics|NP001|cnn.com/politics
-news_sports|NS001|espn.com
-auto_luxury|AL001|bmw.com
-auto_luxury|AL002|mercedes-benz.com
+cnn com politics	news_politics|NP001
+espn com	news_sports|NS001
+bmw com	auto_luxury|AL001
+mercedes benz com	auto_luxury|AL002
 ```
+
+**Pattern Requirements:**
+- Patterns must have at least 2 words after preprocessing
+- Adjacent prefix words are automatically shortened (e.g., "pro professional" → "professional")
+- Single-character words are removed
 
 ### Query Protocol (Server Mode)
 

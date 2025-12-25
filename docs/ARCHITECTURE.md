@@ -7,10 +7,11 @@ System design and integration patterns for deploying PrefixMatch within a Demand
 1. [RTB Ecosystem Overview](#rtb-ecosystem-overview)
 2. [The URL Categorization Challenge](#the-url-categorization-challenge)
 3. [System Architecture](#system-architecture)
-4. [Data Structures](#data-structures)
-5. [Integration Patterns](#integration-patterns)
-6. [Deployment Topologies](#deployment-topologies)
-7. [Scaling Strategies](#scaling-strategies)
+4. [Pattern Preprocessing Pipeline](#pattern-preprocessing-pipeline)
+5. [Data Structures](#data-structures)
+6. [Integration Patterns](#integration-patterns)
+7. [Deployment Topologies](#deployment-topologies)
+8. [Scaling Strategies](#scaling-strategies)
 
 ---
 
@@ -156,6 +157,134 @@ Given URL characteristics, trie-based prefix matching is optimal:
 │                                                          │
 └─────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Pattern Preprocessing Pipeline
+
+Before patterns are inserted into the trie, they undergo a preprocessing pipeline that optimizes match quality and reduces the pattern set size.
+
+### Pipeline Overview
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    Pattern Preprocessing Pipeline                │
+│                                                                  │
+│  Raw Pattern File                                                │
+│        │                                                         │
+│        ▼                                                         │
+│  ┌─────────────────┐                                            │
+│  │  Parse Line     │  "pro professional news\tnews|N001"        │
+│  │  (tab-split)    │  → pattern: "pro professional news"        │
+│  └────────┬────────┘    ref: "news|N001"                        │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌─────────────────┐                                            │
+│  │  Tokenize       │  → ["pro", "professional", "news"]         │
+│  │  (whitespace)   │                                            │
+│  └────────┬────────┘                                            │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌─────────────────┐                                            │
+│  │  Remove 1-char  │  → (no change in this example)             │
+│  │  words          │                                            │
+│  └────────┬────────┘                                            │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌─────────────────┐                                            │
+│  │  Remove         │  → ["pro", "professional", "news"]         │
+│  │  stopwords      │    (if -W enabled)                         │
+│  │  (optional)     │                                            │
+│  └────────┬────────┘                                            │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌─────────────────┐                                            │
+│  │  Prefix         │  "pro" is prefix of "professional"         │
+│  │  Shortening     │  → ["professional", "news"]                │
+│  └────────┬────────┘                                            │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌─────────────────┐                                            │
+│  │  Minimum Word   │  2+ words required                         │
+│  │  Check          │  → ACCEPT (2 words)                        │
+│  └────────┬────────┘                                            │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌─────────────────┐                                            │
+│  │  Insert into    │  Pattern stored in trie                    │
+│  │  Trie           │                                            │
+│  └─────────────────┘                                            │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Preprocessing Rules
+
+#### Rule 1: Single-Character Word Removal
+
+Words with only one character provide no discriminative value and increase false positives:
+
+```
+Before: "a great software company"
+After:  "great software company"
+```
+
+#### Rule 2: Stopword Removal (Optional)
+
+When enabled (`-W`), common words are removed. Protected words (system, information, etc.) are retained:
+
+```
+Before: "the best software in the world"
+After:  "best software world"
+```
+
+#### Rule 3: Adjacent Prefix Shortening
+
+**Critical for URL matching accuracy.** When word N is a prefix of word N+1, word N is removed:
+
+```
+Before: "auto automotive dealer"
+After:  "automotive dealer"
+
+Before: "pro professional services"
+After:  "professional services"
+```
+
+**Why this matters:** Without this rule, the pattern "pro professional" would match the single word "professional" twice—once for "pro" (as a prefix) and once for "professional". This creates false positives when the intent is to match the phrase "pro professional".
+
+#### Rule 4: Minimum Word Count
+
+Patterns must have **at least 2 words** after preprocessing. This ensures:
+
+1. Sufficient specificity for categorization
+2. Reduced false positive rate
+3. Meaningful prefix sequences
+
+### Pattern Rejection Reasons
+
+| Reason | Example | Resolution |
+|--------|---------|------------|
+| Single word | `"google"` | Add more words: `"google search"` |
+| All stopwords | `"the and or"` | Use meaningful words |
+| Prefix collapse | `"pro professional"` | Already handled; use longer pattern |
+| Non-alphanumeric | `"café latté"` | Use ASCII equivalents |
+| Comment line | `"# this is a comment"` | Intentional, not an error |
+
+### Impact on Pattern Set Size
+
+Preprocessing typically reduces the effective pattern count by 5-15%:
+
+| Stage | Patterns | Reduction |
+|-------|----------|-----------|
+| Raw file | 100,000 | - |
+| After parsing | 98,500 | -1.5% (comments, blanks) |
+| After stopwords | 97,000 | -1.5% |
+| After prefix shortening | 95,000 | -2.0% |
+| After min-word check | 85,000 | -10.5% |
+
+The reduction in pattern count improves both memory efficiency and match precision.
+
+---
 
 ### Trie Structure
 
