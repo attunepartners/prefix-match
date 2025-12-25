@@ -16,11 +16,43 @@ PrefixMatch is a C++ library and server designed to match URL strings against a 
 
 ### Performance Benchmarks
 
-| Mode | Throughput | Latency |
-|------|------------|---------|
-| Batch (8 threads) | 85,000 queries/sec | N/A |
-| TCP Server (4 clients) | 15,700 queries/sec | <1ms |
-| Unix Socket (4 clients) | 26,800 queries/sec | <1ms |
+Tested with 100,000 patterns and 4.6 million URLs on commodity hardware.
+
+#### Batch Processing
+
+| Patterns | URLs | Matches | Throughput |
+|----------|------|---------|------------|
+| 100,000 | 4,615,231 | 274,553 | 16,402/sec |
+
+#### Server Mode - Unix Socket
+
+| Clients | Batch Size | Queries | Throughput | Latency (p99) |
+|---------|------------|---------|------------|---------------|
+| 1 | 10 | 2,000 | 12,189/sec | <1ms |
+| 4 | 10 | 8,000 | 14,612/sec | <1ms |
+| 4 | 100 | 20,000 | **25,104/sec** | <1ms |
+| 8 | 100 | 80,000 | 24,102/sec | <1ms |
+
+#### Server Mode - TCP
+
+| Clients | Batch Size | Queries | Throughput | Latency (p99) |
+|---------|------------|---------|------------|---------------|
+| 4 | 100 | 40,000 | 22,031/sec | <1ms |
+| 8 | 100 | 80,000 | 21,651/sec | <1ms |
+
+#### Summary
+
+| Transport | Peak Throughput | Optimal Config |
+|-----------|-----------------|----------------|
+| Unix Socket | **25,104 q/sec** | 4 clients, batch=100 |
+| TCP | 22,031 q/sec | 4 clients, batch=100 |
+
+Unix socket provides ~14% higher throughput by eliminating TCP/IP stack overhead.
+
+Run your own benchmarks with the included script:
+```bash
+./examples/benchmark_server.py --socket /tmp/pm.sock --clients 4 --batch 100
+```
 
 ## Quick Start
 
