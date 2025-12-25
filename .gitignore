@@ -1,0 +1,90 @@
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+cpp/prefix_match
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs and temp files
+*.log
+*.tmp
+*.sock
+*.out
+*.err
+
+# Test and development data files
+*.gz
+*.txt
+!examples/*.txt
+!README.txt
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+.eggs/
+dist/
+build/
+.mypy_cache/
+.pytype/
+.ruff_cache/
+
+# Profile and benchmark files
+*.lineprof*
+*.kprof
+profile.*
+*.html
+
+# Environment
+.env
+.env.local
+venv/
+.venv/
+
+# Development directories
+backup/
+ADDRESSES/
+BEESWAX/
+BENCHMARKS/
+LAST/
+MAEC/
+pattern.build/
+.claude/
+
+# Legacy/development Python files
+pattern.py
+pattern.py.orig
+pattern_optimized.py
+pattern_unoptimized.py
+prefix_match_main.py
+benchmark*.py
+generate_*.py
+test_*.py
+circuit.py
+gen_url.py
+readgz.py
+string_client.py
+gmd5.py
+changepattern.awk
+
+# Data files in root
+p_*
+a
+b
+x
+spf_*
+spfall.txt
+*.fof
+
+# Symlinks
+SKUNKWORKS_PYTHON

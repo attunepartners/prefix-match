@@ -1,0 +1,135 @@
+# Sample URL categorization patterns for RTB
+# Format: category|pattern_id|pattern_text
+#
+# Categories represent content verticals for ad targeting
+# Pattern IDs enable tracking and auditing of matches
+# Pattern text is the URL prefix to match (case-insensitive)
+
+# News - Politics
+news_politics|NP001|cnn.com/politics
+news_politics|NP002|nytimes.com/politics
+news_politics|NP003|washingtonpost.com/politics
+news_politics|NP004|foxnews.com/politics
+news_politics|NP005|politico.com
+news_politics|NP006|thehill.com
+
+# News - Sports
+news_sports|NS001|espn.com
+news_sports|NS002|sports.yahoo.com
+news_sports|NS003|bleacherreport.com
+news_sports|NS004|cbssports.com
+news_sports|NS005|nbcsports.com
+news_sports|NS006|si.com
+
+# News - Business/Finance
+news_finance|NF001|bloomberg.com
+news_finance|NF002|cnbc.com
+news_finance|NF003|wsj.com
+news_finance|NF004|ft.com
+news_finance|NF005|reuters.com/business
+news_finance|NF006|finance.yahoo.com
+
+# News - Technology
+news_tech|NT001|techcrunch.com
+news_tech|NT002|theverge.com
+news_tech|NT003|wired.com
+news_tech|NT004|arstechnica.com
+news_tech|NT005|cnet.com
+news_tech|NT006|engadget.com
+
+# News - Entertainment
+news_entertainment|NE001|eonline.com
+news_entertainment|NE002|people.com
+news_entertainment|NE003|tmz.com
+news_entertainment|NE004|variety.com
+news_entertainment|NE005|hollywoodreporter.com
+
+# Automotive - Luxury
+auto_luxury|AL001|bmw.com
+auto_luxury|AL002|mercedes-benz.com
+auto_luxury|AL003|lexus.com
+auto_luxury|AL004|audi.com
+auto_luxury|AL005|porsche.com
+auto_luxury|AL006|jaguar.com
+auto_luxury|AL007|landrover.com
+auto_luxury|AL008|tesla.com
+
+# Automotive - Mass Market
+auto_mass|AM001|ford.com
+auto_mass|AM002|chevrolet.com
+auto_mass|AM003|toyota.com
+auto_mass|AM004|honda.com
+auto_mass|AM005|hyundai.com
+auto_mass|AM006|nissan.com
+
+# Automotive - Reviews/Research
+auto_research|AR001|edmunds.com
+auto_research|AR002|kbb.com
+auto_research|AR003|autotrader.com
+auto_research|AR004|cars.com
+auto_research|AR005|caranddriver.com
+auto_research|AR006|motortrend.com
+
+# E-commerce - General
+ecom_general|EG001|amazon.com
+ecom_general|EG002|ebay.com
+ecom_general|EG003|walmart.com
+ecom_general|EG004|target.com
+ecom_general|EG005|costco.com
+ecom_general|EG006|bestbuy.com
+
+# E-commerce - Fashion
+ecom_fashion|EF001|nordstrom.com
+ecom_fashion|EF002|macys.com
+ecom_fashion|EF003|zappos.com
+ecom_fashion|EF004|asos.com
+ecom_fashion|EF005|zara.com
+ecom_fashion|EF006|hm.com
+
+# Travel
+travel|TR001|expedia.com
+travel|TR002|booking.com
+travel|TR003|tripadvisor.com
+travel|TR004|kayak.com
+travel|TR005|hotels.com
+travel|TR006|airbnb.com
+travel|TR007|vrbo.com
+
+# Real Estate
+real_estate|RE001|zillow.com
+real_estate|RE002|realtor.com
+real_estate|RE003|redfin.com
+real_estate|RE004|trulia.com
+real_estate|RE005|apartments.com
+
+# Health & Wellness
+health|HE001|webmd.com
+health|HE002|mayoclinic.org
+health|HE003|healthline.com
+health|HE004|medicalnewstoday.com
+health|HE005|nih.gov
+
+# Education
+education|ED001|coursera.org
+education|ED002|udemy.com
+education|ED003|khanacademy.org
+education|ED004|edx.org
+education|ED005|linkedin.com/learning
+
+# Social Media
+social|SO001|facebook.com
+social|SO002|instagram.com
+social|SO003|twitter.com
+social|SO004|linkedin.com
+social|SO005|pinterest.com
+social|SO006|reddit.com
+social|SO007|tiktok.com
+
+# Streaming/Entertainment
+streaming|ST001|netflix.com
+streaming|ST002|hulu.com
+streaming|ST003|disneyplus.com
+streaming|ST004|hbomax.com
+streaming|ST005|youtube.com
+streaming|ST006|twitch.tv
+streaming|ST007|spotify.com

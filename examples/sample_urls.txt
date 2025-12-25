@@ -1,0 +1,46 @@
+# Sample URLs for testing
+# Mix of matching and non-matching URLs
+
+# News - Politics (should match)
+https://cnn.com/politics/2024/election-results
+https://nytimes.com/politics/congress/budget-debate
+https://politico.com/news/campaign-trail
+
+# News - Sports (should match)
+https://espn.com/nba/standings
+https://espn.com/nfl/scores
+https://bleacherreport.com/articles/basketball-playoffs
+https://sports.yahoo.com/mlb/recap
+
+# News - Finance (should match)
+https://bloomberg.com/markets/stocks
+https://cnbc.com/quotes/AAPL
+https://finance.yahoo.com/portfolio
+
+# Automotive (should match)
+https://bmw.com/en/models/3-series
+https://tesla.com/model3
+https://edmunds.com/car-reviews/toyota-camry
+
+# E-commerce (should match)
+https://amazon.com/dp/B09XYZ123
+https://ebay.com/itm/vintage-watch
+https://walmart.com/ip/grocery-deals
+
+# Travel (should match)
+https://expedia.com/flights/search
+https://airbnb.com/rooms/12345
+https://tripadvisor.com/hotels-boston
+
+# Non-matching URLs (should return empty)
+https://example.com/some/page
+https://randomsite.org/article
+https://unknown-domain.net/content
+https://myblog.wordpress.com/2024/post
+https://smallbusiness.local/products
+
+# Edge cases
+cnn.com/politics
+CNN.COM/POLITICS
+https://www.cnn.com/politics/article
+http://espn.com/nba/game/12345
