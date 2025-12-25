@@ -473,10 +473,10 @@ echo '{"id":"1","queries":["cnn.com/politics/article"]}' | nc -U /tmp/pm.sock
 ### Appendix B: Pattern File Format
 
 ```
-category|pattern_id|pattern_text
-news_politics|NP001|cnn.com/politics
-news_sports|NS001|espn.com
-auto_luxury|AL001|bmw.com
+pattern_words<TAB>category|pattern_id
+cnn com politics	news_politics|NP001
+espn com	news_sports|NS001
+bmw com	auto_luxury|AL001
 ```
 
 ---
