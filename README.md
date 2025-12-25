@@ -4,7 +4,13 @@ High-performance trie-based prefix matching engine optimized for real-time biddi
 
 ## Overview
 
-PrefixMatch is a C++ library and server designed to match URL strings against a large set of prefix patterns with sub-millisecond latency. Built for integration into Demand-Side Platform (DSP) bid evaluation pipelines where every millisecond counts.
+PrefixMatch is a C++ implementation based on concepts from pattern matching code licensed from Luther J. Woodrum. The original system was deployed at a medium-sized Demand-Side Platform (DSP) for bidding on programmatic advertising auctions. Note that the original licensed code considerably outperformed this implementation.
+
+In the RTB (Real-Time Bidding) ecosystem, publisher URLs representing available ad space are distributed to subscriber DSPs as part of auction bid records. Along with browser and publisher metadata, this URL information must be rapidly categorized to qualify or reject bids. PrefixMatch addresses this by matching URL patterns against advertiser targeting criteria with sub-millisecond latency.
+
+The system serves two primary use cases:
+- **Real-time bidding**: Categorize URLs within the 50-150ms auction window
+- **Batch processing**: Analyze historical auction data to build repositories of likely ad targets
 
 ### Key Features
 
