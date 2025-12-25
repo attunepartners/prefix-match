@@ -16,7 +16,14 @@ PrefixMatch is a C++ library and server designed to match URL strings against a 
 
 ### Performance Benchmarks
 
-Tested with 100,000 patterns and 4.6 million URLs on commodity hardware.
+#### Test Environment
+
+- **CPU**: AMD Ryzen 7 4800H (8 cores, 16 threads, 2.9GHz base)
+- **RAM**: 64 GB DDR4
+- **Storage**: HP SSD EX950 2TB NVMe
+- **OS**: Linux 6.8.0
+
+Tested with 100,000 patterns and 4.6 million URLs.
 
 #### Batch Processing
 

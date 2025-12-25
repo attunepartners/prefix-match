@@ -303,7 +303,10 @@ PrefixMatch operates as a JSON-over-TCP/Unix-socket service:
 
 #### 6.1 Test Environment
 
-- **Hardware**: 8-core CPU, 32GB RAM
+- **CPU**: AMD Ryzen 7 4800H (8 cores, 16 threads, 2.9GHz base)
+- **RAM**: 64 GB DDR4
+- **Storage**: HP SSD EX950 2TB NVMe
+- **OS**: Linux 6.8.0
 - **Patterns**: 100,000 URL prefix patterns
 - **Test data**: 4.6 million unique URLs
 - **Metrics**: Throughput (queries/sec), latency (ms)
