@@ -2,6 +2,8 @@
 
 System design and integration patterns for deploying PrefixMatch within a Demand-Side Platform (DSP) advertising technology stack.
 
+PrefixMatch is a C++ implementation based on concepts from pattern matching code licensed from Luther J. Woodrum. The original system was deployed at a medium-sized DSP for bidding on programmatic advertising auctions. Note that the original licensed code considerably outperformed this implementation.
+
 ## Table of Contents
 
 1. [RTB Ecosystem Overview](#rtb-ecosystem-overview)

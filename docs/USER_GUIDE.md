@@ -2,6 +2,8 @@
 
 Complete documentation for installing, configuring, and operating PrefixMatch.
 
+PrefixMatch is a C++ implementation based on concepts from pattern matching code licensed from Luther J. Woodrum. The original system was deployed at a medium-sized Demand-Side Platform (DSP) for bidding on programmatic advertising auctions. Note that the original licensed code considerably outperformed this implementation.
+
 ## Table of Contents
 
 1. [Installation](#installation)
